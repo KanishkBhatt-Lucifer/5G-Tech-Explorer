@@ -1,0 +1,416 @@
+/* ============================================================
+   History Before 5G — Stylesheet
+   ============================================================ */
+
+/* ── RESET & BASE ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #0f1b3d, #050914);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #00bfff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-shadow removed: incompatible with background-clip text */
+}
+
+.hero p {
+    color: #a6e3ff;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+/* ── TIMELINE WRAPPER ── */
+.timeline {
+    position: relative;
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("images/1gto5gtimeline.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+/* ── CENTER LINE ── */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #00bfff, #00ffff);
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px #00bfff;
+}
+
+/* ── TIMELINE ITEMS ── */
+.timeline-item {
+    width: 50%;
+    padding: 20px 40px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: left;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+/* ── DOTS ── */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    width: 18px;
+    height: 18px;
+    background: #00bfff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ffff;
+    z-index: 2;
+}
+
+.timeline-item.left::before  { right: -9px; }
+.timeline-item.right::before { left: -9px; }
+
+/* ── CONTENT CARD ── */
+.timeline-content {
+    cursor: pointer;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+    will-change: transform;
+    transform-origin: center;
+}
+
+.timeline-content:not(.active):hover {
+    transform: scale(1.05);
+}
+
+.timeline-content h2 {
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: #cce6ff;
+    font-size: 0.95rem;
+}
+
+/* ── TECH BADGES ── */
+.tech {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px 12px;
+    background: rgba(0, 191, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* ── EXPANDED INFO ── */
+/* BUG FIX: was hardcoded url("images/1g.jpg") for all cards.
+   Background image is now set per-card dynamically via inline style in app.js */
+.expanded-info {
+    margin-top: 15px;
+    padding: 25px;
+
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+
+    background-size: cover;
+    background-position: center;
+
+    max-height: 0;
+    overflow: hidden;
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.expanded-info h3 {
+    color: #00ffff;
+    margin-bottom: 12px;
+}
+
+.expanded-info h2 {
+    color: #00ffff;
+    margin: 20px 0 10px;
+}
+
+.expanded-info ul {
+    padding-left: 20px;
+    color: #cce6ff;
+    line-height: 1.8;
+}
+
+.expanded-info p {
+    color: #cce6ff;
+    line-height: 1.7;
+}
+
+/* ── ACTIVE CARD (popup) ── */
+.timeline-content.active {
+    position: fixed;
+    inset: 0;
+
+    margin: auto;
+
+    width: min(1000px, 90vw);
+    height: fit-content;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    z-index: 2000;
+
+    padding: 25px;
+
+    background: rgba(8,15,40,0.98);
+    border-radius: 12px;
+    border: 1px solid rgba(0,255,255,0.6);
+
+    box-shadow:
+        0 0 20px #00ffff,
+        0 0 60px rgba(0,255,255,0.4),
+        inset 0 0 20px rgba(0,255,255,0.2);
+}
+    
+
+
+.timeline-content.active .expanded-info {
+    opacity: 1;
+    max-height: none;
+}
+
+/* ── DIMMED CARDS ── */
+.timeline-content.dimmed {
+    opacity: 0.1;
+    filter: blur(4px);
+    transform: scale(0.95);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+/* ── CLOSE BUTTON inside expanded-info ── */
+.expanded-info button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(135deg, #00bfff, #00ffff);
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.expanded-info button:hover {
+    transform: translateY(-2px);
+}
+
+/* ── SCAN LINE ANIMATION on active card ── */
+.timeline-content.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 95%,
+        rgba(0, 255, 255, 0.2) 96%
+    );
+    background-size: 100% 6px;
+    animation: scan 3s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ── ABOUT 4G BUTTON ── */
+/* BUG FIX: margin-left: 1277px on the icon removed — was overflowing on all screens */
+.about-4g-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 30px auto;          /* centered horizontally */
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
+}
+
+.about-4g-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 35, 126, 0.5);
+    background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
+}
+
+/* ── BACK LINK ── */
+.back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 10px auto 30px;
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #a6e3ff;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: rgba(0, 191, 255, 0.15);
+    transform: translateX(-4px);
+}
+
+/* ── SLIDER SECTION ── */
+.slider-section {
+    margin-top: 80px;
+    padding: 0 20px 60px;
+    text-align: center;
+}
+
+.slider-section h2 {
+    margin-bottom: 20px;
+    color: #00ffff;
+    font-size: 1.5rem;
+}
+
+input[type=range] {
+    width: 60%;
+    margin: 20px 0;
+    accent-color: #00bfff;
+}
+
+.slider-display {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px auto 0;
+    max-width: 500px;
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.slider-display:hover {
+    box-shadow: 0 0 40px #00ffff;
+}
+
+.slider-display h3 {
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.slider-display p {
+    color: #a6e3ff;
+}
+
+/* ── OVERLAY ── */
+body.overlay {
+    overflow: hidden !important;
+}
+body.overlay::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 999;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes scan {
+    from { background-position: 0 0; }
+    to   { background-position: 0 100%; }
+}
+
+@keyframes pulseGlow {
+    0%   { box-shadow: 0 0 20px #00ffff; }
+    50%  { box-shadow: 0 0 50px #00ffff; }
+    100% { box-shadow: 0 0 20px #00ffff; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+
+    .timeline {
+        margin: 30px 15px;
+    }
+
+    .timeline::before {
+        left: 8px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 15px;
+        left: 0 !important;
+        text-align: left;
+    }
+
+    .timeline-item::before {
+        left: -1px;
+    }
+
+    input[type=range] {
+        width: 90%;
+    }
+}

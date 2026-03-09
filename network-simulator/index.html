@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5G Network Simulators</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="simulator.css">
+</head>
+<body>
+
+<h1>5G Network Simulators</h1>
+<p class="subtitle">Select a procedure — step through each message or use Auto Play
+    <div class="sim-tabs" id="simTabs">
+    <button class="sim-tab" data-sim="registration" onclick="loadSim('registration')">📋 5G Registration</button>
+    <button class="sim-tab" data-sim="pdu"          onclick="loadSim('pdu')">📡 PDU Session</button>
+    <button class="sim-tab" data-sim="vonr"         onclick="loadSim('vonr')">📞 VoNR Call</button>
+    <button class="sim-tab" data-sim="handover"     onclick="loadSim('handover')">🔄 Xn Handover</button>
+    <button class="sim-tab" data-sim="deregistration" onclick="loadSim('deregistration')">🚪 Deregistration</button>
+    <button class="sim-tab" data-sim="servicerequest"  onclick="loadSim('servicerequest')">⚡ Service Request</button>
+    <button class="sim-tab" data-sim="sliceselection"  onclick="loadSim('sliceselection')">🔪 Slice Selection</button>
+    <button class="sim-tab" data-sim="sessionrelease"  onclick="loadSim('sessionrelease')">❌ Session Release</button>
+    <button class="sim-tab" data-sim="epsfallback"     onclick="loadSim('epsfallback')">📉 EPS Fallback</button>
+    <button class="sim-tab" data-sim="mtpaging"        onclick="loadSim('mtpaging')">📲 MT Paging</button>
+    </div>
+</p>
+
+<!-- ── SIM SELECTOR TABS ── -->
+
+
+<!-- ── ANIMATION STAGE ── -->
+<div class="stage-outer">
+    <div class="stage" id="stage">
+        <svg class="connector-layer" id="connSvg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrBlue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <polygon points="0 0, 8 4, 0 8" fill="rgba(100,160,255,0.45)"/>
+                </marker>
+            </defs>
+        </svg>
+        <div class="stage-placeholder" id="placeholder">← Select a simulation above to begin</div>
+    </div>
+</div>
+
+<!-- ── DESCRIPTION PANEL ── -->
+<div class="desc-panel">
+    <div class="desc-meta">
+        <span class="desc-title" id="descTitle">Ready</span>
+        <span class="desc-iface" id="descIface" style="display:none"></span>
+    </div>
+    <div class="desc-text" id="descText">Choose a simulation to explore 5G network procedures step by step.</div>
+    <div class="desc-counter" id="descCounter"></div>
+</div>
+
+<!-- ── PLAYBACK CONTROLS ── -->
+<div class="controls">
+    <button class="btn-play"  id="btnPlay"  onclick="autoPlay()"    disabled><i class="fas fa-play"></i> Auto Play</button>
+    <button class="btn-step"  id="btnStep"  onclick="stepForward()" disabled>Next Step <i class="fas fa-arrow-right"></i></button>
+    <button class="btn-reset"               onclick="resetSim()"><i class="fas fa-redo"></i> Reset</button>
+    <a href="../index.html" class="fiveG-explorer-btn">
+        <i class="fas fa-rocket "></i> Go Back to 5G Explorer
+    </a>
+</div>
+<div>
+    
+</div>
+
+<script src="simulator.js"></script>
+</body>
+</html>

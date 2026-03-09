@@ -1,0 +1,382 @@
+/* ============================================================
+   About 5G — Stylesheet
+   ============================================================ */
+
+/* ── RESET & BASE ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ── IMAGES ── */
+/* BUG FIX: was width:1160px / 1080px — overflowed on all normal screens */
+.my-img {
+    width: 100%;
+    height: auto;
+    border: 6px solid #0a1214;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.fivegsystemoverview-img,
+.fivegconfigs-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 3px solid #841212;
+    display: block;
+}
+
+/* System cards image (inside info-card) */
+.fivegsystem-img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+}
+
+/* ── HEADER ── */
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* ── SECTIONS ── */
+/* BUG FIX: border: 3px solid had no color — rendered as black. Now uses a proper color */
+.section {
+    background: white;
+    border: 3px solid #e8eaf6;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+}
+
+.section-title {
+    color: #1a237e;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8eaf6;
+    display: flex;
+    align-items: center;
+}
+
+.section-title i {
+    margin-right: 12px;
+    color: #3949ab;
+}
+
+/* ── CONTENT GRIDS ── */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* BUG FIX: fivegsystem-grid class was defined in CSS but never applied in HTML.
+   The grid id="fivegsystem-grid" now gets proper grid styling via this rule. */
+#fivegsystem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* ── INFO CARDS ── */
+.info-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 25px;
+    border-left: 4px solid #3949ab;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.info-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.info-card:hover {
+    background: #e8eaf6;
+    transform: translateX(5px) !important;
+}
+
+.info-card h3 {
+    color: #1a237e;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.info-card ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    color: #444;
+    line-height: 1.8;
+}
+
+/* ── COMPARISON TABLE ── */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.comparison-table.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.comparison-table th {
+    background-color: #1a237e;
+    color: white;
+    text-align: left;
+    padding: 15px;
+}
+
+.comparison-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.comparison-table tr:nth-child(even) td {
+    background-color: #f8f9fa;
+}
+
+.comparison-table tr:hover td {
+    background-color: #e8eaf6;
+    cursor: pointer;
+}
+
+.comparison-table tr.highlighted td {
+    background-color: #e8eaf6;
+    font-weight: 600;
+}
+
+/* ── CAPABILITIES TABLE ── */
+/* BUG FIX: data row used <th> instead of <td> — caused wrong styling.
+   Fixed in app.js render function. CSS now targets td correctly. */
+.capabilities-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.capabilities-table.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.capabilities-table th {
+    background-color: #175fc3;
+    color: #fff;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.capabilities-table td {
+    background-color: #eef2ff;
+    color: #1a237e;
+    padding: 15px;
+    border-bottom: 1px solid #c5cae9;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ── BENEFITS LIST ── */
+.benefits-list {
+    list-style-type: none;
+}
+
+.benefit-item {
+    padding: 15px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.benefit-item:last-child {
+    border-bottom: none;
+}
+
+.benefit-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.benefit-item i {
+    color: #4caf50;
+    margin-top: 4px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.benefit-item h3 {
+    color: #1a237e;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.benefit-item p {
+    color: #555;
+    font-size: 0.92rem;
+}
+
+/* ── INTEGRATION NOTE ── */
+.integration-note {
+    background-color: #e3f2fd;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+    border-left: 4px solid #2196f3;
+}
+
+.integration-note h3 {
+    color: #1a237e;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.integration-note p {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* ── BACK LINK ── */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #1a237e;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: #3949ab;
+    transform: translateX(-5px);
+}
+
+/* ── FOOTER ── */
+.page-footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    background-color: #1a237e;
+    color: white;
+    border-radius: 10px;
+}
+
+.page-footer p {
+    margin-bottom: 10px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.2rem; }
+
+    .section { padding: 20px; }
+
+    .content-grid,
+    #fivegsystem-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .comparison-table,
+    .capabilities-table {
+        font-size: 0.85rem;
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 10px; }
+
+    .page-header { padding: 25px 15px; }
+    .page-header h1 { font-size: 1.8rem; }
+
+    .section-title { font-size: 1.4rem; }
+
+    .info-card h3 { font-size: 1.1rem; }
+}

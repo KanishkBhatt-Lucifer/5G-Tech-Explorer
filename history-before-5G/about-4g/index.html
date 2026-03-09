@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About 4G Technology | LTE and LTE Advanced</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="page-header">
+            <h1><i class="fas fa-star"></i> 4G Technology</h1>
+            <p>The fourth generation of wireless technology transformed mobile communication by delivering high-speed internet access, lower latency, and an all-IP network architecture that enabled seamless streaming, online gaming, and advanced smartphone applications.</p>
+        </header>
+
+        <!-- ARCHITECTURE IMAGE -->
+        <img src="images/ltearch.jpg" alt="Evolved Packet System (EPS)" class="my-img">
+        <h2 class="title">EVOLVED PACKET SYSTEM (EPS)</h2>
+
+        <!-- EPC COMPONENTS + LTE AIR INTERFACE -->
+        <section class="section" id="lte-network">
+
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Basic Information</h2>
+            <p class="section-title1">
+                ֎ In 3G, base station was termed "nodeB"<br>
+                ֎ In 4G, base station was termed "eNodeB"<br>
+                ֎ In 5G, base station is termed "gNodeB"<br>
+                ֎ The RAN of 4G EPS is called E-UTRAN (Evolved Universal Terrestrial Radio Access Network).<br>
+                ֎ LTE separates Control and User data flows.<br>
+                ֎ Control messages are called signalling messages; User data is called Traffic.<br>
+                ֎ MME controls mobility and anchors user to core network.<br>
+                ֎ HSS authenticates user for services.<br>
+                ֎ S-GW and P-GW route data traffic to the operator services network.<br>
+                ֎ E-UTRAN provides user with radio (wireless) services.
+            </p>
+
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Wireless Tech Used in 4G</h2>
+            <p class="section-title1">
+                ֎ OFDMA<br>
+                ֎ UWB (Ultra Wide Band)<br>
+                ֎ Smart Antenna<br>
+                ֎ Long term power prediction<br>
+                ֎ Scheduling among users<br>
+                ֎ Adaptive modulation and power control
+            </p>
+
+            <!-- EPC component cards — injected by app.js -->
+            <div class="content-grid" id="features-grid"></div>
+
+            <h1 class="head">LTE — Air Interface</h1>
+            <p class="section-title1">
+                The LTE air interface is the wireless communication link between the UE and the eNodeB. It delivers high data rates, low latency, and efficient spectrum utilization using OFDMA (downlink), SC-FDMA (uplink), and flexible bandwidths from 1.4 MHz to 20 MHz.
+            </p>
+            <p class="section-title1">
+                Features — ֎ Duplexing option (FDD, TDD) &nbsp; ֎ Scalable Bandwidth &nbsp;
+                ֎ OFDMA access technique &nbsp; ֎ Modulation &nbsp; ֎ Shared channel &nbsp; ֎ MIMO &amp; Mobility
+            </p>
+
+            <!-- LTE air interface cards — injected by app.js -->
+            <div class="content-grid" id="lteairinterface-grid"></div>
+
+            <!-- Air interface reference images -->
+            <p style="margin-top:20px;"> </p>
+            <img src="images/lteair.jpg"       alt="LTE Air Interface"    class="my-img1">
+            <img src="images/duplexinglte.jpg"  alt="LTE Duplexing"        class="my-img1">
+            <img src="images/scalablebw.jpg"    alt="Scalable Bandwidth"   class="my-img1">
+            <img src="images/datamodlte.jpg"    alt="Data Modulation"      class="my-img1">
+            <img src="images/mimolte.jpg"       alt="MIMO LTE"             class="my-img1">
+            <img src="images/ltehandover.jpg"   alt="LTE Handover"         class="my-img1">
+
+        </section>
+
+        <!-- COMPARISON TABLE -->
+        <section class="section" id="comparison">
+            <h2 class="section-title"><i class="fas fa-chart-bar"></i> 4G vs Previous Generations</h2>
+            <div id="comparison-table"></div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="section" id="benefits">
+            <h2 class="section-title"><i class="fas fa-star"></i> Key Benefits of 4G</h2>
+            <ul class="benefits-list" id="benefits-list"></ul>
+        </section>
+
+        <!-- APPLICATIONS -->
+        <section class="section" id="applications">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> 4G Applications</h2>
+            <div class="content-grid" id="applications-grid"></div>
+        </section>
+
+        <!-- ROAD TO 5G -->
+        <section class="section" id="roadto5g">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> LTE Operations &amp; Road to 5G</h2>
+            <p>LTE is optimised to deliver packet data services.</p>
+            <!-- Road to 5G cards — injected by app.js -->
+            <div class="content-grid" id="roadto5g-grid"></div>
+
+            <!-- Reference images -->
+            <p style="margin-top:20px;"> </p>
+            <img src="images/epsbearer.jpg"  alt="EPS Bearer"        class="my-img1">
+            <img src="images/epsbearer1.jpg" alt="EPS Bearer Detail"  class="my-img1">
+            <img src="images/apn.jpg"        alt="APN"                class="my-img1">
+            <img src="images/laa.jpg"        alt="LAA"                class="my-img1">
+            <img src="images/enhanmimo.jpg"  alt="Enhanced MIMO"      class="my-img2">
+        </section>
+
+        <!-- CARRIER AGGREGATION -->
+        <section class="section" id="carrieraggre">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Carrier Aggregation</h2>
+            <div class="content-grid" id="carrieraggre-grid"></div>
+        </section>
+
+        <!-- LTE EVOLUTION -->
+        <section class="section" id="lteevolution">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> LTE Evolution: LTE-Advanced &amp; LTE-Adv Pro</h2>
+            <p style="font-size:0.85rem; color:#555; margin-bottom:10px;">
+                ← LTE Advanced (Rel. 10–12) &nbsp;&nbsp; | &nbsp;&nbsp; LTE Advanced Pro (Rel. 13–14) →
+            </p>
+            <!-- Evolution cards — injected by app.js -->
+            <div class="content1-grid" id="lteevolution-grid"></div>
+        </section>
+
+        <!-- NAVIGATION -->
+        <div class="integration-note">
+            <h3><i class="fas fa-database"></i> Test Your Knowledge</h3>
+            <p>Ready for a 4G knowledge check?</p>
+            <a href="4g-puzzle-game/index.html" class="forward-link">
+                <i class="fas fa-arrow-right"></i> 4G Knowledge Check
+            </a>
+        </div>
+
+        <div class="integration-note">
+            <h3><i class="fas fa-cloud"></i> Connected with "History up to 4G"</h3>
+            <p>Wanna time travel?</p>
+            <a href="../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> History Before 5G
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="page-footer">
+            <p><i class="fas fa-satellite-dish"></i> 4G Technology Information</p>
+            <p>Part of the 5G-VR Experience Project</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">© Kanishk Bhatt | College of Technology</p>
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

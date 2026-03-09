@@ -1,0 +1,100 @@
+[
+  {
+    "gen": "1G",
+    "year": "1980s",
+    "type": "Analog",
+    "bandwidth": "≈ 2.4 kbps",
+    "latency": "Very High",
+    "key": [
+      "Voice only",
+      "No security",
+      "No Internet"
+    ],
+    "tech": [
+      "AMPS",
+      "NMT",
+      "TACS"
+    ],
+    "whyNext": "Analog technology resulted in poor voice quality<br>No data services (only voice communication)<br>No encryption, leading to very low security<br>High interference and noise affecting call reliability<br>Limited network capacity for growing users<br>Large and bulky mobile devices<br>Frequent call drops and unstable connections<br><u>These limitations led to the development of 2G digital networks, which introduced better voice quality, higher capacity, and services like SMS.</u>"
+  },
+  {
+    "gen": "2G",
+    "year": "1990s",
+    "type": "Digital",
+    "bandwidth": "≈ 64 kbps",
+    "latency": "High",
+    "key": [
+      "SMS",
+      "Better voice quality",
+      "Basic security"
+    ],
+    "tech": [
+      "IS-95 and GSM added Voice capability and Data mobility",
+      "CDMA in 2.5G(EDGE)"
+    ],
+    "whyNext": "Very low data speeds (suitable mainly for SMS and basic data)<br>Limited support for internet and multimedia services<br>High latency for modern applications<br>Poor support for mobile broadband<br>Unable to handle growing data traffic demand<br>Limited support for video services and advanced applications<br><u>These limitations led to the development of 3G, which introduced faster mobile internet and multimedia capabilities.</u>"
+  },
+  {
+    "gen": "3G",
+    "year": "2000s",
+    "type": "Packet Switched + Circuit Switched",
+    "bandwidth": "150kbps - 40Mbps",
+    "latency": "Medium",
+    "key": [
+      "Mobile internet",
+      "Video calls",
+      "Email",
+      "Web-Browsing",
+      "Music download",
+      "GPS Navigation"
+    ],
+    "tech": [
+      "UMTS",
+      "CDMA2000 and WCDMA",
+      "HSDPA",
+      "HSPA+"
+    ],
+    "whyNext": "Limited data speeds for modern applications<br>Higher latency affecting real-time services<br>Not efficient for high-bandwidth services like HD video streaming<br>Struggled to handle rapidly growing mobile data traffic<br>Limited support for advanced multimedia and mobile broadband<br>Lower spectral efficiency compared to newer technologies<br><u>These limitations led to the development of 4G LTE, which provides higher data rates, lower latency, and better support for mobile broadband.</u>"
+  },
+  {
+    "gen": "4G",
+    "year": "2010s",
+    "type": "All IP",
+    "bandwidth": "50mbps - 1gbps",
+    "latency": "Low",
+    "key": [
+      "LTE",
+      "VoIP",
+      "HD video streaming",
+      "Multiplayer games",
+      "Mobile Commerce",
+      "Machine to machine comm.",
+      "Multimedia and Multicast Support"
+    ],
+    "tech": [
+      "LTE",
+      "LTE-Advanced",
+      "LTE-ADV PRO"
+    ],
+    "whyNext": "Limited data speeds for emerging high-bandwidth applications<br>Latency not low enough for real-time services like remote surgery or autonomous driving<br>Not designed to support massive IoT connectivity<br>Limited capability for ultra-reliable communication<br>Increasing demand for higher network capacity and efficiency<br>Lack of native support for network slicing and advanced automation<br>Need for Densification, Cloudification & Disaggregation.<br><u>These limitations led to the development of 5G, which provides higher speeds, ultra-low latency, massive device connectivity, and more flexible network architecture.</u>"
+  },
+  {
+    "gen": "5G",
+    "year": "2020s",
+    "type": "Service-based",
+    "bandwidth": "1–10 Gbps",
+    "latency": "< 1 ms",
+    "key": [
+      "eMBB",
+      "URLLC",
+      "mMTC"
+    ],
+    "tech": [
+      "LTE Evolution + NR (IMT2020)",
+      "OFDMA",
+      "Massive MIMO",
+      "Network Slicing"
+    ],
+    "whyNext": "Growing demand for even higher data speeds (Tbps level)<br>Need for extremely low latency for advanced real-time applications<br>Support for massive numbers of connected devices beyond current IoT scale<br>Requirement for AI-native and intelligent networks<br>Need for more immersive technologies like holographic communication and extended reality (XR)<br>Improved energy efficiency and sustainability for future networks<br><u>These goals are driving research toward 6G networks, expected to provide ultra-high speeds, near-instant communication, and advanced intelligent connectivity.</u>"
+  }
+]

@@ -1,0 +1,198 @@
+{
+  "controlPlane": [
+    {
+      "id": "nssf",
+      "name": "NSSF",
+      "fullName": "Network Slice Selection Function",
+      "description": "NSSF (Network Slice Selection Function) is a new NF introduced in 5G Core control-plane function, which assists the AMF in selecting the appropriate network slice instance for a UE. In 5G, multiple logical networks (slices) can run on the same physical infrastructure, each optimized for different services like eMBB, URLLC or massive IoT. NSSF helps the network decide which slice instance a device should use based on requested NSSAI, subscribed slice information, and network configuration. It also ensures that the selected slice is supported in the UE’s current tracking area. By enabling intelligent slice selection, NSSF supports service customization, efficient resource utilization, and seamless user experience across different 5G use cases.<br><br><b>Communication path : </b>AMF → NSSF via Nnssf",
+      "interfaces": [
+        "Nnssf – Service-based interface used by AMF to request slice selection"
+      ],
+      "color": "#FF6B6B"
+    },
+    {
+      "id": "nef",
+      "name": "NEF",
+      "fullName": "Network Exposure Function",
+      "description": "NEF is a 5G Core function that allows external applications and service providers to interact with the mobile network in a secure and controlled manner. Instead of giving direct access to internal network functions, NEF acts as a secure gateway that exposes selected network capabilities through standardized APIs. It enables applications to request specific network behaviors, such as improved QoS for critical services, user location updates, or event notifications. NEF forwards application requests to the Policy Control Function (PCF), which generates policy rules. These rules are then enforced by the Session Management Function (SMF), which configures traffic handling rules in the User Plane Function (UPF). NEF also ensures that all requests follow operator policies, including authentication, authorization, and charging rules. By safely exposing network intelligence to third-party platforms, NEF supports innovative services in areas like IoT, smart cities, industry automation, and enterprise applications while maintaining network security and integrity. NEF is a successor of SCEF (Service Capability Exposure Function) of 4G network.<br><br><b>Application</b> →(QoS requirement)→ <b>NEF</b> →{policy request)→ <b>PCF</b> (generates policy rules) → <b>SMF</b> →(installs PDR/FAR/QER rules in UPF via N4)→ <b>UPF</b> → <b>UPF enforces traffic</b>",
+      "interfaces": [
+        "Nnef — Service-based interface used for exposing network capabilities to external applications."
+      ],
+      "color": "#4ECDC4"
+    },
+    {
+      "id": "nrf",
+      "name": "NRF",
+      "fullName": "Network Repository Function",
+      "description": "NRF is a key component of the 5G Core that enables communication between different network functions in the Service-Based Architecture (SBA). It acts like a central directory where network functions register their services and capabilities. When one network function needs to communicate with another (for example, AMF needing SMF), it queries the NRF to discover the appropriate instance. NRF then provides the required service information, enabling dynamic and efficient interaction. Because 5G is cloud-native and highly scalable, network functions can be created, scaled, or removed dynamically. NRF supports this flexibility by continuously updating and managing service availability information, ensuring smooth and efficient core network operation. ",
+      "interfaces": [
+        "Nnrf – Service-based interface for NF registration, update, and discovery"
+      ],
+      "color": "#FFD166"
+    },
+    {
+      "id": "pcf",
+      "name": "PCF",
+      "fullName": "Policy Control Function",
+      "description": "Similar to PCRF in 4G-LTE, PCF (Policy Control Function) is the 5G Core function responsible for making real-time policy decisions about how network resources are allocated to users and services. It determines QoS, charging rules, and service priorities based on subscription data and network conditions. PCF retrieves subscriber policy data stored in the UDR via the UDM and provides all those policies to SMF so that SMF can create proper PDR and pass those rules to UPF so that UPF can enforce those rules on the user plane traffic. Unlike 4G’s PCRF, PCF is built for 5G’s cloud-native, service-based architecture, making it more flexible and scalable. In short, PCF ensures that the right user gets the right quality of service at the right time while optimizing overall network performance. PCF can also connect to NEF and can get some kind of 3rd party applications to customise some of the policies so that any perticular traffic can be managed based on the requirements of the 3rd party application. ",
+      "interfaces": [
+        "Npcf",
+        "N7 Towards SMF",
+        "N15 Towards AMF",
+        "N5 Towards AF",
+        "N36 Towards UDR"
+      ],
+      "color": "#06D6A0"
+    },
+    {
+      "id": "udm",
+      "name": "UDM",
+      "fullName": "Unified Data Management",
+      "description": "UDM (Unified Data Management) is a core control-plane function in the 5G network responsible for managing user identity and subscription-related information. It acts as the logical brain for handling subscriber data, ensuring that only authorized users can access network services. Unlike earlier generations (like 4G’s HSS), UDM is designed to work within the 5G Service-Based Architecture (SBA), making it more modular and flexible. It interacts with authentication functions to verify user credentials and supports features such as roaming, mobility management, and network slicing. UDM also enables operators to deliver personalized services by maintaining detailed subscription profiles, service permissions, and slice-specific data. Its architecture allows secure, scalable, and efficient handling of millions of subscribers in modern 5G networks. It also decrypts the SUCI using the home network’s private key to get SUPI and sends back to AMF.",
+      "interfaces": [
+        "Nudm",
+        "N8 Towards AMF",
+        "N35 Towards UDR",
+        "N10 Towards SMF",
+        "N13 towards AuSF"
+      ],
+      "color": "#118AB2"
+    },
+    {
+      "id": "amf",
+      "name": "AMF",
+      "fullName": "Access and Mobility Management Function",
+      "description": "AMF (Access and Mobility Management Function) is a central control-plane entity in the 5G Core that manages how user devices connect to and move within the network. It acts as the primary signaling interface between the UE (User Equipment) and the 5G Core, handling all NAS (Non-Access Stratum) signaling procedures. AMF is responsible for maintaining the connection state of devices, whether they are idle or actively transmitting data. It keeps track of the device’s location at a tracking-area level and ensures seamless service continuity during mobility events such as handovers. Beyond mobility, AMF also coordinates with security and session management functions to establish secure communication and enable PDU sessions. By managing connectivity, reachability, and mobility in a scalable way, AMF plays a crucial role in ensuring reliable and efficient operation of the 5G network. It is similar to MME of 4G network or VLR of 2G/3G. AMF send SUCI to UDM for decryption. AMF allocates GUTI.",
+      "interfaces": [
+        "Namf",
+        "N1",
+        "N2"
+      ],
+      "color": "#FB5607"
+    },
+    {
+      "id": "nssaf",
+      "name": "NSSAAF",
+      "fullName": "Network Slice-Specific Authentication and Authorization Function",
+      "description": "NSSAF (Network Slice-Specific Authentication and Authorization Function) is a 5G Core function that adds an extra layer of security specifically for network slicing. While general user authentication is handled by AUSF, NSSAF ensures that a subscriber is permitted to access a particular network slice. In advanced 5G deployments—especially for enterprises, private networks, or mission-critical services—different slices may have different security requirements. NSSAF verifies whether the user’s subscription and credentials allow access to that specific slice instance. By enforcing slice-level access control, NSSAF helps maintain strict isolation between slices, protecting sensitive services (like industrial automation or emergency communication) from unauthorized users and enhancing overall network security in multi-slice environments.",
+      "interfaces": [
+        "Nnsaaf",
+        "N58 Towards AMF",
+        "N59 Towards UDM"
+      ],
+      "color": "#7209B7"
+    },
+    {
+      "id": "ausf",
+      "name": "AUSF",
+      "fullName": "Authentication Server Function",
+      "description": "AUSF (Authentication Server Function) is the 5G Core function responsible for securely authenticating users before they access network services. When a device attempts to connect to the network, AUSF acts as the central authority that validates the user’s credentials using authentication data provided by UDM. It provides information to the AMF so that AMF can complete the first level of authentication. AuSF does 2nd level of authentication. It works with UDM to verify subscriber credentials using methods like 5G-AKA and EAP-AKA’. AUSF ensures secure identity validation and protects against unauthorized access, playing a key role in maintaining 5G network security. AMF is always there in the visited network while Ausf and UDM always remains in your home network.",
+      "interfaces": [
+        "Nausf",
+        "N12 Towards AMF",
+        "N13 Towards UDM"
+      ],
+      "color": "#3A86FF"
+    },
+    {
+      "id": "af",
+      "name": "AF",
+      "fullName": "Application Function",
+      "description": "AF (Application Function) is a logical entity in the 5G architecture that represents applications requiring specific network behavior. It can belong to the operator’s domain (like IMS for voice services) or to third-party service providers (such as OTT platforms, IoT platforms, or enterprise applications). AF communicates with the 5G Core—typically through the NEF—to inform the network about application-level requirements such as latency sensitivity, bandwidth demand, or priority handling. Based on this information, the network can dynamically adjust policies and QoS parameters. By allowing applications to influence network behavior in a controlled way, AF helps deliver optimized performance for services like cloud gaming, smart manufacturing, remote surgery, and real-time communication, making 5G more application-aware and service-oriented.",
+      "interfaces": [
+        "Naf",
+        "N5 Towards PCF"
+      ],
+      "color": "#EF476F"
+    },
+    {
+      "id": "smf",
+      "name": "SMF",
+      "fullName": "Session Management Function",
+      "description": "Key control-plane function in the 5G Core Network, Session Creation,management/maintainence,Termination , It provides all control info. to UPF so that UPF can manage the traffic flows and it gets all those details from the PCF in the form of QoS policies. SMF is similar to Control Plane part of SGW and PGW in 4G network.",
+      "interfaces": [
+        "Nsmf",
+        "N4 Towards UPF",
+        "N7 Towards PCF",
+        "N11 Towards AMF",
+        "N10 Towards UDM"
+      ],
+      "color": "#8338EC"
+    },
+    {
+      "id": "udr",
+      "name": "UDR",
+      "fullName": "Unified Data Repository",
+      "description": [
+        "UDR (Unified Data Repository) is a centralized data storage function in the 5G Core Network that securely stores and manages subscriber, policy, and application data. It supports the Service-Based Architecture (SBA) of 5G by allowing different network functions such as UDM, AMF, SMF, PCF, and AUSF to access required data through standardized RESTful APIs. UDR ensures efficient data sharing, reduces duplication across network elements, and enables real-time updates for better network performance. It plays a crucial role in network slicing, personalization, and scalable data management in modern 5G systems."
+      ],
+      "interfaces": [
+        "Nudr",
+        "N17 towards AMF"
+      ],
+      "color": "#4c3c62"
+    },
+    {
+      "id": "scp",
+      "name": "SCP",
+      "fullName": "Service Communication Proxy",
+      "description": "SCP (Service Communication Proxy) is a supporting function in the 5G Core that manages how network functions communicate with each other within the Service-Based Architecture (SBA). Instead of allowing every network function to directly connect with others, SCP can act as an intermediary that routes, forwards, and controls service requests. In large-scale, cloud-native deployments, multiple instances of the same network function may exist. SCP helps intelligently distribute traffic among these instances, improving reliability and scalability. It can also provide features like request retry, overload control, and failure handling to maintain stable communication. By abstracting direct connections and centralizing service routing, SCP enhances flexibility, simplifies network management, and improves overall resilience of the 5G core network.",
+      "interfaces": [
+        "Nscp"
+      ],
+      "color": "#FF006E"
+    }
+  ],
+  "userPlane": [
+    {
+      "id": "upf",
+      "name": "UPF",
+      "fullName": "User Plane Function",
+      "description": "Only user-plane component in the 5G Core. Acts as an anchor point during NG-RAN mobility. One end connects to the gNB, and all user data is sent to the UPF via the gNB. The other end connects to the Data Network to provide access to the Internet/IMS. UPF receives all rules from the SMF, which are used to enforce QoS handling on user-plane traffic. Performs encapsulation and decapsulation of GPRS Tunneling Protocol for the user plane (GTP-U). Acts as the PDU session anchor point for providing mobility within and between Radio Access Technologies (RATs), including sending one or more end marker packets to the gNB. Performs packet routing and forwarding, including the role of an uplink classifier (UL-CL), directing flows to specific data networks based on traffic matching filters, and acting as a branching point when functioning as an Intermediate UPF (I-UPF) multi-homed to more than one PDU Session Anchor (PSA). Supports application detection using Service Data Flow (SDF) traffic filter templates or 3-tuple (protocol, server IP, and port number) Packet Flow Descriptions (PFDs) received from the SMF. Performs per-flow QoS handling, including transport-level packet marking for uplink and downlink, rate limiting, and reflective QoS (DSCP) marking on the downlink. Supports traffic usage reporting for billing and the Lawful Intercept (LI) collector interface.",
+      "interfaces": [
+        "N3 Towards GnB",
+        "N4 Towards SMF",
+        "N6 Towards DN",
+        "N9 Towards Secondary UPF"
+      ],
+      "color": "#3A86FF"
+    }
+  ],
+  "accessNetwork": [
+    {
+      "id": "ue",
+      "name": "UE",
+      "fullName": "User Equipment",
+      "description": "User Equipment (UE) refers to the end-user device that connects to the 5G network through the Radio Access Network (RAN). It is the device used by subscribers to access mobile communication services such as voice calls, internet browsing, video streaming, IoT connectivity, and other applications. UE communicates with the gNodeB (gNB) over the wireless interface and interacts with the 5G Core network through signaling and data sessions. During network access, the UE performs procedures such as registration, authentication, mobility management, and session establishment. Modern UE devices can support multiple technologies including 5G NR, 4G LTE, Wi-Fi, and IoT connectivity. They contain components such as the modem, SIM/USIM, antenna systems, and application processors that allow them to communicate with the network and run user applications. In the 5G architecture, UE is responsible for initiating network communication, requesting services, and transmitting user data. It also supports advanced 5G capabilities such as high data rates, low latency communication, and massive device connectivity, enabling new applications like augmented reality, smart devices, autonomous systems, and industrial IoT.",
+      "interfaces": [
+        "N1 — Interface between UE and AMF for control-plane signaling",
+        "Uu (NR air interface) — Wireless interface between UE and gNodeB (RAN)"
+      ],
+      "color": "#06D6A0"
+    },
+    {
+      "id": "ran",
+      "name": "RAN",
+      "fullName": "Radio Access Network",
+      "description": "The Radio Access Network (RAN) in 5G is responsible for providing the wireless connection between User Equipment (UE) and the 5G Core network. The main component of the 5G RAN is the gNodeB (gNB), which acts as the base station that transmits and receives radio signals to and from user devices.<br> The gNodeB manages radio resources, handles user mobility, and ensures reliable wireless communication within a cell coverage area. It processes both control plane and user plane traffic, forwarding signaling messages to the Access and Mobility Management Function (AMF) and user data to the User Plane Function (UPF) in the 5G Core.<br>In 5G architecture, the gNodeB can be divided into functional components such as the Central Unit (CU) and Distributed Unit (DU) to support flexible deployment and efficient processing. The CU handles higher-layer protocols and control functions, while the DU manages real-time radio processing and scheduling.<br>The 5G RAN also introduces advanced technologies such as Massive MIMO, beamforming, and millimeter-wave communication, which improve network capacity, coverage, and data rates. By efficiently managing wireless communication, the RAN enables high-speed connectivity, low latency, and reliable service delivery to users.",
+      "interfaces": [
+        "Uu (NR Air Interface) — Interface between UE and gNodeB",
+        "N2 — Control plane interface between gNodeB and AMF",
+        "N3 — User plane interface between gNodeB and UPF"
+      ],
+      "color": "#FFD166"
+    }
+  ],
+  "dataNetwork": [
+    {
+      "id": "dn",
+      "name": "DN",
+      "fullName": "Data Network",
+      "description": "• The Data Network (DN) represents external networks that users access through the 5G Core network. It is the destination where user data ultimately travels after passing through the User Plane Function (UPF). The DN can include the public internet, private enterprise networks, cloud services, or specialized service platforms such as the IP Multimedia Subsystem (IMS).<br>• In the 5G architecture, the DN is not part of the core network itself but is connected to the 5G Core through the N6 interface. When a user device establishes a PDU session, the network creates a data path between the UE and the DN, allowing the device to send and receive application data.<br>• Different network slices in 5G can connect to different data networks depending on the service requirements. For example, an enterprise slice may connect to a private company network, while a consumer slice may connect to the public internet. This flexibility enables customized services for various industries and applications.<br>• By connecting users to external services and platforms, the Data Network enables applications such as web browsing, video streaming, cloud computing, enterprise services, and IoT platforms.",
+      "interfaces": [
+        "N6 — Interface between UPF and Data Network"
+      ],
+      "color": "#FF6B6B"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "labels": [
+    { "text": "5G UE", "slot": "0" },
+    { "text": "gNB",   "slot": "1" },
+    { "text": "gNB",   "slot": "2" },
+    { "text": "AMF",   "slot": "3" },
+    { "text": "SMF",   "slot": "4" },
+    { "text": "PCF",   "slot": "5" },
+    { "text": "AUSF",  "slot": "6" },
+    { "text": "UDM",   "slot": "7" },
+    { "text": "UPF",   "slot": "8" }
+  ],
+
+  "dropZones": [
+    { "id": "ue",   "answer": "5G UE", "slot": "0" },
+    { "id": "gnb1",  "answer": "gNB",   "slot": "1" },
+    { "id": "gnb2",  "answer": "gNB",   "slot": "2" },
+    { "id": "amf",  "answer": "AMF",   "slot": "3" },
+    { "id": "smf",  "answer": "SMF",   "slot": "4" },
+    { "id": "pcf",  "answer": "PCF",   "slot": "5" },
+    { "id": "ausf", "answer": "AUSF",  "slot": "6" },
+    { "id": "udm",  "answer": "UDM",   "slot": "7" },
+    { "id": "upf",  "answer": "UPF",   "slot": "8" }
+  ],
+
+  "interfaceLabels": [
+
+    { "style": "left:175px;  top:220px;",                                                "text": "Uu"    },
+    { "style": "left:372px;  top:196px;",                                                "text": "N1/N2" },
+    { "style": "left:420px;  top:465px;",                                                "text": "N3"    },
+    { "style": "left:658px;  top:316px;",                                                "text": "N4"    },
+    { "style": "left:840px;  top:438px;",                                                "text": "N6"    },
+    { "style": "left:755px;  top:180px;",                                                "text": "N7"    },
+    { "style": "left:506px;  top:268px;",                                                "text": "N12"   },
+    { "style": "left:782px;  top:268px;",                                                "text": "N8/N10"},
+    { "style": "left:600px;  top:180px;",                                                "text": "N11"   },
+
+    {
+      "style": "left: 623px; top:130px; font-size:11px; color:rgba(100,127,255,0.55); font-weight:600; letter-spacing:1px; text-shadow:none;",
+      "text": "CONTROL PLANE"
+    },
+    {
+      "style": "left:623px; top:510px; font-size:11px; color:rgba(80,200,255,0.55); font-weight:600; letter-spacing:1px; text-shadow:none;",
+      "text": "USER PLANE"
+    }
+  ],
+
+  "arrows": [
+
+    { "type": "arrow",    "style": "left:150px; top:243px; width:90px;"  },
+    { "type": "arrow",    "style": "left:360px; top:214px; width:120px;"  },
+    { "type": "arrow",    "style": "left:600px; top:200px; width:30px;"  },
+    { "type": "arrow",    "style": "left:750px; top:200px; width:30px;"  },
+
+    { "type": "arrowdown","style": "left:297px; top:290px; width:3px; height:190px;" },
+    { "type": "arrow",    "style": "left:297px; top:487px; width:333px;" },
+
+    { "type": "sbaline",  "style": "left:480px; top:248px; width:420px;" },
+
+    { "type": "arrowdown","style": "left:537px; top:248px; width:3px; height:72px;"  },
+    { "type": "arrowdown","style": "left:837px; top:248px; width:3px; height:72px;"  },
+
+    { "type": "arrowdown","style": "left:687px; top:248px; width:3px; height:162px;" },
+
+    { "type": "arrow",    "style": "left:750px; top:458px; width:328px;" },
+    { "type": "arrowup","style": "left:1082px; top:380px; width:3px; height:80px;" }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Enhanced Mobile Broadband (eMBB)",
+    "description": "Focuses on very high data speeds and large capacity for applications like 4K/8K video streaming, cloud gaming, and AR/VR experiences.",
+    "details": [
+      "Large volume of data transfer",
+      "Higher data rates",
+      "Lower latency",
+      "Greater battery life",
+      "Extended coverage"
+    ],
+    "image": "images/embb.jpg"
+  },
+  {
+    "name": "Critical IoT (URLLC)",
+    "description": "Designed for mission-critical applications requiring extremely low latency and high reliability, such as autonomous vehicles, remote surgery, industrial automation, and smart grids.",
+    "details": [
+      "Used for time critical communications such as self driving cars or tele-healthcre",
+      "In contrast to eMBB, critical IoT can deliver data within strict latency bounds with required gurantee level, even in heavily loaded networks",
+      "Use cases could be intelligient transport systems, smart utilities, remote healthcare, smart manufacturing, fully imersive AR/VR, car ADAS, etc."
+    ],
+    "image": "images/urllc.jpg"
+  },
+  {
+    "name": "Massive IoT (mMTC)",
+    "description": "Massive Machine-Type Communication supports a very large number of connected devices with low power consumption, ideal for IoT applications like smart cities, environmental monitoring, and smart agriculture.",
+    "details": [
+      "Wide area coverage",
+      "Deep penetration",
+      "Humdreds of thousands of devices for every sq. Km of coverage",
+      "Provide extensive connectivity with relatively low software & hardware complexity with low energy operations",
+      "Many devices supported are battery powered , have small payloads & might rarely be active"
+    ],
+    "image": "images/mmtc.jpg"
+  },
+  {
+    "name": "FIXED WIRELESS ACCESS (FWA)",
+    "description": "FWA (Fixed Wireless Access) is a broadband service that uses wireless network technology—such as 4G or 5G—to provide high-speed internet to homes and businesses without requiring physical fiber or cable connections. Instead of traditional wired infrastructure, FWA connects users through a wireless link between a base station and a fixed receiver installed at the customer premises. In 5G, FWA offers high data speeds, low latency, and quick deployment, making it ideal for rural or underserved areas where laying fiber is expensive or impractical. It serves as an alternative to fiber or DSL for delivering reliable home and enterprise internet services.",
+    "details": [
+      "Provides broadband using wireless (4G/5G) network",
+      "No need for fiber or cable to the home",
+      "Uses a fixed receiver (CPE) at customer premises",
+      "Connects to nearby base station (gNB)",
+      "Faster deployment compared to fiber",
+      "Ideal for rural and underserved areas",
+      "Supports high-speed internet and low latency (in 5G)",
+      "Cost-effective alternative to wired broadband",
+      "Suitable for homes, SMEs, and enterprises"
+    ],
+    "image": "images/fwa.jpg"
+  }
+]

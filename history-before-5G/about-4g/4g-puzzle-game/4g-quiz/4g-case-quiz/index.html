@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4G LTE Case-Based Interview Quiz</title>
+    <link rel="stylesheet" href="case-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="case-container">
+
+    <header class="case-header">
+        <h1>4G LTE Case-Based Interview Simulator</h1>
+        <p>Real Telecom Troubleshooting &amp; Architecture Scenarios</p>
+    </header>
+
+    <!-- ── QUIZ SCREEN ── -->
+    <section id="case-screen">
+
+        <div class="case-info">
+            <span id="case-number"></span>
+            <!-- BUG FIX: score tracking added — was completely missing -->
+            <span id="score-display"></span>
+        </div>
+
+        <!-- Score progress bar -->
+        <div class="score-bar-container">
+            <div id="score-bar"></div>
+        </div>
+
+        <div class="case-box">
+            <h2 id="case-title"></h2>
+            <p id="case-description"></p>
+        </div>
+
+        <div class="options-container">
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+        </div>
+
+        <div class="action-buttons">
+            <!-- BUG FIX: nextBtn previously let you skip scenarios without
+                 answering — now guarded in JS -->
+            <button id="next-btn">Next Scenario</button>
+            <button id="explain-btn">Show Explanation</button>
+        </div>
+
+        <div id="explanation-box"></div>
+
+    </section>
+
+    <!-- ── RESULT SCREEN ── -->
+    <!-- BUG FIX: was just alert("completed") — replaced with a real screen -->
+    <section id="result-screen" style="display:none;">
+        <div class="result-box">
+            <h2>All Scenarios Completed! 🎯</h2>
+            <p id="final-score"></p>
+            <p id="result-message"></p>
+
+            <div class="result-buttons">
+                <button id="restart-btn">
+                    <i class="fas fa-redo"></i> Try Again
+                </button>
+                <a href="../index.html" class="QUIZ-btn">
+                    <i class="fas fa-arrow-left"></i> Back to 4G Quiz
+                </a>
+                <a href="../../../index.html" class="QUIZ-btn">
+                    <i class="fas fa-arrow-left"></i> Back to About 4G page
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- BUG FIX: <script src="..."> had inline code inside the tag.
+     Browsers silently ignore inline content when src= is present.
+     The inline code also referenced id="message" which doesn't exist.
+     Fixed: src-only script tag, no inline content. -->
+<script src="case-quiz.js"></script>
+</body>
+</html>

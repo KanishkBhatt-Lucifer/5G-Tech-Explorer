@@ -1,0 +1,306 @@
+[
+  {
+    "name": "📡 Wireless Communication",
+    "description": "DEFINITION : Transfer of Information over AIR between a transmitter and a receiver.",
+    "details": [
+      "RF: Radio Frequency is an EM signal which is characterised by its wavelength and frequency. ",
+      "Frequency: [3KHz - 300GHz]",
+      "Wavelength : [100Km - 1mm]",
+      "Limitaions of Wireless networks : ",
+      "   — Limited communication bandwidth",
+      "   — Frequent disconnections",
+      "   — Heterogeneity of fragmented network",
+      "Limitaions imposed by mobility :",
+      "   — route breakages",
+      "   — lack of mobility awareness by system",
+      "Limitaions of mobile device :",
+      "   — short battery life",
+      "   — limited capacities"
+    ],
+    "image": "images/wireless.jpg"
+  },
+  {
+    "name": "📡 Wireless Transmission and Reception",
+    "description": "Information → Encoding → Modulation → RF Upconversion → Amplification → Antenna →→→→→→→→ Wireless Channel →→→→→→→→ Antenna → RF Amplification → Downconversion → Demodulation → Decoding → Output",
+    "details": [
+      "More Power = Better Coverage ",
+      "More Sensitivity = Better Reception",
+      "Noise is unwanted energy/signal within the used spectrum.",
+      "Noise is always present in any device or communication medium",
+      "Interference is a form of noise which results from receiving undesirable signals that have been transmitted from other sources.",
+      "Factors affecting wireless system design :",
+      "   — Frequency allocation",
+      "   — Multiple access mechanisms",
+      "   — Antenna and propagation",
+      "   — Signal encoding",
+      "   — Error correction",
+      "Signal may need to traverse multiple links to reach destination and is called Multihop transmission. Mobility may cause route change."
+    ],
+    "image": "images/blockdiagram.jpg"
+  },
+  {
+    "name": "The cellular concept",
+    "description": "Cell coverage, Mobility and Full mobility, Handoff and Handoff failure",
+    "details": [
+      "The cellular concept divides a large geographical area into smaller regions called cells, each served by a base station. This allows efficient use of limited radio frequency spectrum through frequency reuse, increasing network capacity. The cells are designed to have overlapping coverage. As a user moves from one cell to another, the network ensures continuous connectivity by transferring the connection to the new cell. This concept forms the foundation of all modern mobile communication systems (2G to 5G).",
+      "Factors for determining cell size : ",
+      "   — No. of users to be supported. ",
+      "   — Multiplexing and Modulation technology used.",
+      "Limited freq. impiles limited channels. High power antenna implies limited no. of users. Smaller cells implies possibility of frequency reuse i.e. more users.",
+      "Base Station (BS) : Implements Space Division Multiplexing. Each cell is served by a BS.",
+      "Cluster : Group of nearby BS that together use all available channels.",
+      "Mobile Station (MS) : Communicate only via the BS. ",
+      "Each BS is connected to Mobile Switching center (MSC).",
+      "Each MSC is connected to other MSC & PSTN.",
+      "FDMA, TDMA, CDMA may be used within a cell.",
+      "Increase in Demand requires Increase in no. of Channels which requires Increase in no. of BS and therefore transmitter power is decreased to avoid interference.",
+      "Mobility refers to the ability of a mobile device to move freely while maintaining active network connectivity. The network continuously tracks the user’s location (at tracking area or cell level) to support seamless communication, paging, and session continuity. It requires n/w mobility management and coverage continuity.",
+      "Full Mobility refers to the capability of a mobile network to maintain uninterrupted voice or data sessions while a user moves at any speed, including high-speed scenarios like trains or highways. It ensures seamless handover between cells, frequencies, or even different Radio Access Technologies (RATs) without noticeable service interruption. Full mobility supports continuous session continuity, low latency transitions, and reliable connectivity across the entire network coverage area. In 5G, it typically supports vehicular speeds upto 100mph.",
+      "Handoff (or handover) is the process of transferring an ongoing call or data session from one base station (cell) to another when a user moves across cell boundaries or when signal quality degrades. It ensures seamless communication without call drops. In 5G, handovers can occur within the same frequency, between different frequencies, or even between different Radio Access Technologies (RATs).",
+      "Handover failure occurs when the transfer of a connection from one cell to another is unsuccessful. This can happen due to weak signal strength, interference, resource unavailability in the target cell, incorrect handover parameters, or sudden radio link failure. Handover failures may lead to call drops or session interruption.",
+      "Voice services require shorter interrupions at handoff.",
+      "Data services are less sensitive to delay during handoff."
+    ],
+    "image": "images/cell_concept.jpg"
+  },
+  {
+    "name": "Carrier waves & Modulation",
+    "description": "RF signal used for information transfer are referred to as carrier waves.",
+    "details": [
+      "Modulation is the process by which we impress info. onto the carrier wave for transmission.",
+      "At receiver, carrier wave is 'demodulated' to recover the data.",
+      "Ananlog and Digital modulation can be performed depending on the data and requirement.",
+      "Low frequency bands carry less data but can pass through dense objects.",
+      "High frequency bands carry more data but poor at penetrating obstacles. ",
+      "Battery use increases as transmission frequency increases.",
+      "Battery use also increases with switching b/w bands",
+      "For Digital modulation, parameters that can be tweaked to get 0 & 1 representation-",
+      "Modulation      What Changes?              Meaning",
+      "ASK                 Amplitude                  Signal height changes",
+      "FSK                 Frequency                  Signal speed changes",
+      "PSK                 Phase                         Signal angle shifts ",
+      "QAM              Amplitude + Phase    Both height and angle change"
+    ],
+    "image": "images/askfskpsk.jpg"
+  },
+  {
+    "name": "Spectrum Concepts",
+    "description": "Radio Spectrum is simply the range of radio frequencies over which wireless communication takes place for specific purpose.",
+    "details": [
+      "Spectrum provides the RF connection.",
+      "ITU handles co-ordination across countries for seamless communication between countries.",
+      "FCC (Federal Communications Commission) is the governing body for spectrum within U.S.",
+      "Band Steering : Automatic detection by devices to select the best band based on signal strength, speed, n/w congestion & user mobility.",
+      "Practical Examples-",
+      "AM Radio → ~1 MHz (MF)",
+      "FM Radio → ~100 MHz (VHF)",
+      "WiFi → 2.4 GHz / 5 GHz (UHF/SHF)",
+      "Satellite Communication → 4–12 GHz (SHF)",
+      "5G mmWave → 28 GHz+ (EHF)",
+      "Bio Imaging → 1-10THz",
+      "Baggage screening → 50-60Hz"
+    ],
+    "image": "images/spectrum.jpg"
+  },
+  {
+    "name": "NMT, AMPS & TACS",
+    "description": "Radio Spectrum is simply the range of radio frequencies over which wireless communication takes place for specific purpose.",
+    "details": [
+      "                      NMT (Nordic Mobile Telephone)",
+      "First fully automatic international cellular system (launched in 1981)",
+      "Developed in Nordic countries (Sweden, Norway, Denmark, Finland)",
+      "Operated mainly in 450 MHz, later 900 MHz band",
+      "Analog (1G) technology",
+      "Supported international roaming between Nordic countries",
+      "Improved coverage in rural and sparsely populated areas",
+      "                      AMPS (Advanced Mobile Phone System)",
+      "Launched in 1983 in the United States",
+      "Operated in the 800 MHz band (824–849 MHz uplink / 869–894 MHz downlink)",
+      "Analog (1G) system",
+      "Used FDMA (Frequency Division Multiple Access)",
+      "Provided improved voice quality compared to earlier systems",
+      "Became the primary 1G standard in North America",
+      "                      TACS (Total Access Communication System)",
+      "Introduced in the mid-1980s in the United Kingdom and in Japan (JTACS)",
+      "Operated in the 900 MHz band",
+      "Analog (1G) technology",
+      "Based on a modified version of AMPS",
+      "Supported better capacity for urban areas",
+      "Widely deployed in Europe before 2G GSM replaced it",
+      "ETACS is extended version of TACS"
+    ],
+    "image": "images/nmt,amps,tacs.jpg"
+  },
+  {
+    "name": "Radio Link and Duplexing",
+    "description": "A radio link is a wireless communication connection between two points (such as a base station and a mobile device) using radio frequency (RF) signals to transmit and receive data. Duplex modes define how communication occurs between two devices in a wireless system—whether transmission happens in one direction or both directions.",
+    "details": [
+      "1. Simplex :One-way communication only",
+      "                 Data flows in one direction",
+      "                 No feedback from receiver.  Examples:Keyboard → Computer, TV broadcast, Radio broadcast",
+      "2. Half Duplex :Two-way communication but NOT at the same time",
+      "                 Both can transmit, But only one at a time",
+      "                 Examples: Walkie-talkie, CB radio",
+      "3. Full Duplex: Two-way communication at the same time",
+      "                 Both transmit and receive simultaneously",
+      "                 Examples: Mobile phone calls, Telephone, Video calls."
+    ],
+    "image": "images/duplex.jpg"
+  },
+  {
+    "name": "FDD & TDD",
+    "description": "FDD is a duplexing technique where two separate frequency bands are used for communication—one for uplink (UE to BS) and one for downlink (BS to UE). TDD is a duplexing technique where the same frequency band is used for both uplink and downlink communication, but transmission occurs at different time slots.",
+    "details": [
+      "FDD is commonly used in traditional cellular networks because it provides stable performance and low latency for continuous voice and data communication.",
+      "Both transmission directions occur simultaneously, but on different frequencies, separated by a guard band to avoid interference. ",
+      "Used In-",
+      "        2G, 3G, Most 4G LTE bands, Traditional cellular networks",
+      "Advantages: No switching delay, Good for voice calls, Stable coverage",
+      "Disadvantages: Needs paired spectrum (costly), Less flexible for traffic imbalance",
+      "                           ",
+      "In TDD, uplink and downlink share the frequency alternately in time, allowing flexible allocation of time resources based on traffic demand.",
+      "TDD is widely used in modern 4G and 5G systems because it efficiently supports asymmetric data traffic (more downlink than uplink).",
+      "Used In-",
+      "        WiFi, 5G NR (many bands), Some LTE bands (e.g., Band 40)",
+      "Advantages: Flexible UL/DL ratio, Better for data-heavy applications, No need for paired spectrum",
+      "Disadvantages: Switching delay, Requires tight synchronization"
+    ],
+    "image": "images/TDDFDD.jpg"
+  },
+  {
+    "name": "FDMA, CDMA, WCDMA & OFDMA",
+    "description": "Multiple Access Technology refers to techniques that allow multiple users to share the same communication medium (radio spectrum) efficiently without causing unacceptable interference to each other. Since radio spectrum is limited, multiple access methods divide resources in terms of frequency, time, code, or subcarriers so that many users can transmit and receive data simultaneously. Different generations of mobile networks have used different multiple access schemes—such as FDMA, TDMA, CDMA, and OFDMA—to improve capacity, spectral efficiency, data rates, and overall network performance.",
+    "details": [
+      "FDMA (Frequency Division Multiple Access)",
+      "Spectrum divided into separate frequency bands",
+      "Each user gets a dedicated frequency channel",
+      "Users transmit simultaneously on different frequencies",
+      "Simple implementation",
+      "Used in early systems like 1G",
+      "Low spectral efficiency compared to modern methods",
+      "        ",
+      "TDMA (Time Division Multiple Access)",
+      "Single frequency channel shared by multiple users",
+      "Time divided into time slots",
+      "Each user transmits in a specific time slot",
+      "Users transmit one after another (not simultaneously)",
+      "Requires tight time synchronization",
+      "More efficient than FDMA",
+      "Used in 2G GSM systems",
+      "Moderate spectral efficiency compared to CDMA/OFDMA",
+      "        ",
+      "CDMA (Code Division Multiple Access)",
+      "All users share the same frequency band",
+      "Each user assigned a unique spreading code",
+      "Signals separated at receiver using code correlation",
+      "Better capacity than FDMA",
+      "More resistant to interference",
+      "Used in 2G/3G systems",
+      "                           ",
+      "WCDMA (Wideband CDMA)",
+      "Advanced version of CDMA",
+      "Uses wider bandwidth (5 MHz)",
+      "Higher data rates than basic CDMA",
+      "Used in 3G (UMTS) networks",
+      "Supports voice and data services",
+      "Improved spectral efficiency",
+      "        ",
+      "OFDMA (Orthogonal Frequency Division Multiple Access)",
+      "Spectrum divided into many orthogonal subcarriers",
+      "Users assigned groups of subcarriers",
+      "High spectral efficiency",
+      "Very robust against multipath fading",
+      "Supports high data rates",
+      "Used in 4G LTE and 5G"
+    ],
+    "image": "images/fdmatdmacdmaofdma.jpg"
+  },
+  {
+    "name": "Bandwidth, Information Rate & Spectral Efficiency",
+    "description": "A radio signal that carries info. uses a range of frequency over which the communication link is established. Wider the link/channel => Higher the data rate. Spectral efficiency is the theoritical maxima that any wireless communication system is designed to provide. ",
+    "details": [
+      "Throughput: Data transmission rate",
+      "It is possible to share the radio channel among multiple users (called multiple access techiques).",
+      "Number of bars in our phone signal represents SNR.",
+      "Spectral efficiency also implies how well the spectrum is getting utilised."
+    ],
+    "image": "images/channelbw.jpg"
+  },
+  {
+    "name": "SNR",
+    "description": "SNR (Signal-to-Noise Ratio) is a measure of the strength of a desired signal compared to background noise in a communication system. It is usually expressed in decibels (dB) and indicates the quality of the received signal. A higher SNR means the signal is much stronger than the noise, resulting in clearer communication and lower error rates, while a low SNR leads to distortion, data errors, and reduced performance. In wireless systems, maintaining a good SNR is essential for reliable transmission and higher data rates.",
+    "details": [
+      "When two adjacent cells use the same RF at the same time, they create interference where the radio coverage overlaps.",
+      "Interference reduces the quality of signal received by the user.",
+      "SNR quantifies the quality of received signal.",
+      "↑ SNR  => ↑ Quality"
+    ],
+    "image": "images/snr.jpg"
+  },
+  {
+    "name": "MIMO & Beamforming",
+    "description": "MIMO implies using multiple antennas to improve capacity and coverage. Beamforming means directing signals toward specific users instead of broadcasting everywhere.",
+    "details": [
+      "MIMO (Multiple Input Multiple Output) is a wireless communication technology that uses multiple transmitting and receiving antennas to improve data speed, reliability, and spectral efficiency. ",
+      "By transmitting multiple data streams simultaneously over the same frequency band, MIMO increases capacity without requiring additional bandwidth.",
+      "It also enhances signal strength and reduces fading through spatial diversity and spatial multiplexing.",
+      "MIMO creates multiple data transmission pipes or layers.",
+      "MIMO is a key technology in modern 4G and 5G networks to achieve high data rates and better coverage.",
+      "Non- line of sight channels works best and create more pipes",
+      "Line of sight channels typically limit MIMO to a single pipe",
+      "Beamforming is an advanced antenna technique used in wireless communication where signals are directed toward a specific user instead of being transmitted in all directions.",
+      "By adjusting the phase and amplitude of signals from multiple antennas, the system forms a focused beam that improves signal strength, coverage, and data rates while reducing interference.",
+      "Beamforming is widely used in 4G and 5G networks, especially with massive MIMO, to enhance network capacity and overall performance."
+    ],
+    "image": "images/mimobeamforming.jpg"
+  },
+  {
+    "name": "The cellular network",
+    "description": "Mobile <--> RAN <--> CORE <--> Internet",
+    "details": [
+      "User equipment (UE): Mobile phones, IoT devices, tablets, etc.",
+      "Radio Access Network (RAN): Provides radio connections (wireless connectivity) to users, Base stations are interconnected, users communicate with one Base Station at anytime.",
+      "Core Network: Connects RAN to service network. Handles Authentication, security amd network access procedures. Also does switching, routing and connectivity to services.",
+      "Two types of information traveles across this network ie. Control info : Signalling info. that set's up, reconfigure and release the data link and Data info. : Also called traffic, which is the actual info. to be exchanged.",
+      "Protocols are standardized rules that govern communication between devices and network elements, ensuring reliable, secure, and efficient data transmission in cellular systems like 5G. In other words, protocol simply means 'What, When and How info. is communicated over a data link.'",
+      "Radio protocols are specific to info. exchanged over the radio link.",
+      "Protocols define: How data is formatted, How security is applied, How retransmissions happen, How devices connect and move between cells, How internet traffic flows. Without protocols, devices would not understand each other.",
+      "5G follows a layered protocol architecture with layers being 1) Physical Layer (PHY) 2) MAC (Medium Access Control) 3)RLC (Radio Link Control) 4)PDCP (Packet Data Convergence Protocol) 5)RRC (Radio Resource Control)",
+      "More details on protocols could be found the 'PROTOCOLS' tab."
+    ],
+    "image": "images/the cell netrork.jpg"
+  },
+  {
+    "name": "Network Slicing",
+    "description": "Network Slicing is a 5G technology that allows a single physical network infrastructure to be divided into multiple virtual networks, called slices, each designed to meet specific service requirements. Every slice operates independently and can be customized for parameters like latency, bandwidth, reliability, and security. For example, one slice can be optimized for high-speed mobile broadband (eMBB), another for ultra-reliable low-latency communication (URLLC) such as autonomous vehicles, and another for massive IoT (mMTC). Network slicing enables efficient resource utilization, service isolation, and tailored performance, making 5G more flexible and capable of supporting diverse applications on the same network infrastructure.",
+    "details": [
+      "N/W slicing enables us to build multiple logical n/w or virtual n/w (network slices) on top of a common shared physical infrastructure.",
+      "Slices are seperate & independent so that if something goes wrong in one slice, it will not affect other slices and we can add new slices without imapacting the rest of the n/w. ",
+      "Supports key 5G use cases: eMBB, URLLC, mMTC",
+      "Improves resource utilization efficiency",
+      "Supports enterprise and private network deployments",
+      "Enhances security through slice-level separation",
+      "Controlled by core functions like NSSF, AMF, SMF, and PCF",
+      "Enables flexible and service-oriented 5G architecture"
+    ],
+    "image": "images/networkslicing.jpg"
+  },
+  {
+    "name": "Edge Computing",
+    "description": "Edge Computing is a distributed computing approach where data processing and storage are performed closer to the end users or devices instead of relying solely on centralized cloud servers. By moving computation to the “edge” of the network—such as base stations or local edge servers—it reduces latency, improves response time, and minimizes backhaul traffic. In 5G networks, edge computing (often called Multi-Access Edge Computing or MEC) enables real-time applications like autonomous vehicles, smart factories, AR/VR, and remote healthcare by providing ultra-low latency and high reliability. It enhances performance, reduces network congestion, and supports time-sensitive services by processing data near the source.",
+    "details": [
+      "Brings computing and storage closer to the user (network edge)",
+      "Reduces latency for real-time applications",
+      "Minimizes backhaul traffic to central cloud",
+      "Supports ultra-low latency services (URLLC)",
+      "Enables applications like AR/VR, autonomous vehicles, smart factories",
+      "Improves application performance and responsiveness",
+      "Enhances network efficiency and bandwidth utilization",
+      "Supports localized data processing and analytics",
+      "Increases reliability for mission-critical services",
+      "Works closely with UPF and 5G Core architecture",
+      "Enables enterprise and private 5G deployments"
+    ],
+    "image": "images/edge computing.jpg"
+  }
+]

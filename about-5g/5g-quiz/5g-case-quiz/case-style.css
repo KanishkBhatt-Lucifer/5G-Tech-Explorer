@@ -1,0 +1,262 @@
+/* ============================================================
+   5G NR Case Quiz — Stylesheet
+   Exact structural replica of 4G Case Quiz stylesheet.
+   Colour scheme shifted to purple/violet to distinguish 5G.
+   ============================================================ */
+
+/* ── RESET ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #1a0a3d, #060310);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* ── CONTAINER ── */
+.case-container {
+    width: 100%;
+    max-width: 950px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(160, 80, 255, 0.25);
+    box-shadow: 0 0 40px rgba(160, 80, 255, 0.18);
+    margin: auto;
+}
+
+/* ── HEADER ── */
+.case-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.case-header h1 {
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, #a050ff, #e040fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.case-header p {
+    margin-top: 10px;
+    color: #d4aaff;
+    font-size: 0.95rem;
+}
+
+/* ── CASE INFO ROW ── */
+.case-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #d4aaff;
+}
+
+/* ── SCORE BAR ── */
+.score-bar-container {
+    width: 100%;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#score-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #a050ff, #e040fb);
+    transition: width 0.5s ease;
+    border-radius: 5px;
+}
+
+/* ── CASE BOX ── */
+.case-box {
+    margin-bottom: 25px;
+}
+
+.case-box h2 {
+    color: #e040fb;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.case-box p {
+    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #edd9ff;
+    white-space: pre-line;
+}
+
+/* ── OPTIONS ── */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.option-btn {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid rgba(160, 80, 255, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.option-btn:hover {
+    background: rgba(160, 80, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(160, 80, 255, 0.3);
+}
+
+.option-btn.correct { background-color: #1b5e20 !important; border-color: #00ff88 !important; }
+.option-btn.wrong   { background-color: #7f1d1d !important; border-color: #ff4d4d !important; }
+
+/* ── ACTION BUTTONS ── */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #7b1fa2, #a050ff);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.action-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(160, 80, 255, 0.4);
+}
+
+/* ── EXPLANATION BOX ── */
+#explanation-box {
+    margin-top: 15px;
+    padding: 18px;
+    border-left: 4px solid #a050ff;
+    background: rgba(160, 80, 255, 0.1);
+    border-radius: 8px;
+    display: none;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #edd9ff;
+    white-space: pre-line;
+}
+
+/* ── RESULT SCREEN ── */
+.result-box {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.result-box h2 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #a050ff, #e040fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+#final-score {
+    font-size: 1.4rem;
+    color: #e040fb;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#result-message {
+    font-size: 1.05rem;
+    color: #d4aaff;
+    margin-bottom: 30px;
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#restart-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7b1fa2, #a050ff);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(160, 80, 255, 0.4);
+}
+
+.QUIZ-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4a0072 0%, #7b1fa2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 0, 114, 0.35);
+}
+
+.QUIZ-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(74, 0, 114, 0.55);
+    background: linear-gradient(135deg, #7b1fa2 0%, #4a0072 100%);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #a050ff; border-radius: 4px; }
+::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .case-container { padding: 25px; }
+    .case-header h1 { font-size: 1.6rem; }
+    .case-box h2 { font-size: 1.1rem; }
+    .option-btn { font-size: 0.85rem; }
+    .action-buttons { flex-direction: column; }
+    .action-buttons button { width: 100%; }
+    .result-buttons { flex-direction: column; align-items: stretch; }
+    .result-buttons a, #restart-btn { justify-content: center; }
+}

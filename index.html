@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5G Explained</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- BUG FIX: Font Awesome was never loaded — both nav buttons use
+       <i class="fas fa-info-circle"> which showed as blank boxes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>5G Technology Explorer</h1>
+      <p>Click. Explore. Go deeper.</p>
+      <p>Because "5G is not just about faster phones; it's about connecting everything, everywhere, in real time."</p>
+    </header>
+
+    <main id="layer-container">
+      <!-- Dynamic layers will appear here -->
+    </main>
+    <br>
+    <div>
+        <a href="about-5g/index.html" class="about-5g-btn">
+        <i class="fas fa-rocket "></i> Dive into 5G Technology
+        </a>
+        <a href="history-before-5G/index.html" class="history-before-5G-btn">
+        <i class="fas fa-history "></i> Curious about history ?  
+        </a>
+        <a href="network-simulator/index.html" class="network-simulator-btn">
+        <i class="fas fa-play "></i> Network Simulator          
+        </a>
+    </div>
+  </div>
+
+  <!-- Popup Backdrop -->
+  <div id="popup-backdrop" class="hidden"></div>
+  
+  <!-- Popup Content -->
+  <div id="popup" class="hidden"></div>
+
+  <script src="app.js"></script>
+  
+
+
+</body>
+</html>

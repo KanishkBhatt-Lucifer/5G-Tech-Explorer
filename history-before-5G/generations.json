@@ -1,0 +1,79 @@
+[
+  {
+    "name": "1G (1980s)",
+    "shortDesc": "Analog voice communication. No encryption, poor quality.",
+    "image": "images/1g.jpg",
+    "tech": ["AMPS", "NMT", "TACS"],
+    "descrip": "1G was the first generation of mobile cellular networks, introduced in the late 1970s and early 1980s. It was based entirely on analog communication technology and was designed primarily for voice calls. The first commercial 1G network was launched in 1979 in Japan by NTT. Later, countries like the United States and Nordic nations deployed their own systems such as AMPS (Advanced Mobile Phone System), NMT (Nordic Mobile Telephone), and TACS (Total Access Communication System). However, 1G had several limitations: Poor voice quality, Limited capacity, No encryption (low security), Large and bulky mobile devices, Frequent call drops and interference. Despite its drawbacks, 1G laid the foundation for modern cellular communication and paved the way for the development of digital 2G networks.",
+    "details": [
+      "Consist of voice only",
+      "Speed: ~2.4 kbps",
+      "Analog signal transmission",
+      "Multiplexing Technique: Frequency Division Multiplexing",
+      "No data support",
+      "No encryption security",
+      "Frequency Range: 824–849 MHz (uplink) and 869–894 MHz (downlink) bands by AMPS, 450 MHz and later 900 MHz bands by NMT, 900 MHz band by TACS"
+    ]
+  },
+  {
+    "name": "2G (1990s)",
+    "shortDesc": "Digital voice, SMS introduced, improved security.",
+    "image": "images/2g.jpg",
+    "tech": ["GSM", "CDMA", "EDGE"],
+    "descrip": "Second Generation (2G) mobile communication emerged in the early 1990s as the first major shift from analog to digital cellular technology, addressing the limitations of 1G systems such as poor voice quality, lack of security, and inefficient spectrum usage. The transition to digital transmission significantly improved call clarity, reduced interference, and introduced encryption for enhanced privacy. One of the most important milestones in 2G history was the development of GSM (Global System for Mobile Communications) in Europe, which became a global standard and enabled international roaming, while other standards like IS-95 CDMA were adopted in different regions. Beyond improved voice services, 2G introduced Short Message Service (SMS), which revolutionized mobile communication by allowing users to send text messages, eventually becoming one of the most widely used mobile services worldwide. Although primarily designed for voice, 2G also enabled basic data services through technologies such as GPRS (2.5G) and EDGE (2.75G), allowing limited internet access, email, and multimedia messaging. The widespread adoption of 2G during the 1990s and early 2000s laid the foundation for modern mobile networks by expanding subscriber capacity, improving spectrum efficiency through digital modulation techniques like TDMA and CDMA, and establishing the core architecture principles that later evolved into 3G, 4G, and eventually 5G systems.",
+    "details": [
+      "Speed: 50-100 kbps",
+      "Digital signal transmission",
+      "Frequency range : 800/900MHz - 1800/1900MHz",
+      "Bandwidth : 30-200KHz",
+      "Circuit Switched Data rate of 9.6 kbps",
+      "2.5G → GPRS (General Purpose Radio Service) → Packet Switched data at 50kbps",
+      "2.5G → Single carrier radio transmission tech (1xRTT) with data rate 153kbps",
+      "2.75G → Major focus on data usage → Packet switched data rate of 500kbps",
+      "2.75G → GPRS + EDGE (Enhanced Data rate for GSM Evolution)",
+      "Voice, SMS & MMS support",
+      "Basic encryption introduced",
+      "Reduced fraud and discouraged cloned handsets."
+    ]
+  },
+  {
+    "name": "3G (2000s)",
+    "shortDesc": "Mobile internet, video calling, GPS",
+    "image": "images/3g.jpg",
+    "tech": ["CDMA2000", "WCDMA", "UMTS", "HSPA"],
+    "descrip": "Third Generation (3G) mobile communication emerged in the early 2000s as a major advancement over 2G networks, driven by the growing demand for mobile internet access and multimedia services. Standardized under the International Telecommunication Union's IMT-2000 framework, 3G was designed to provide higher data rates, improved capacity, and global interoperability. Technologies such as UMTS (Universal Mobile Telecommunications System) based on WCDMA in Europe and CDMA2000 in the United States became the primary implementations of 3G. Unlike 2G, which was mainly voice-centric, 3G enabled packet-switched data services alongside traditional circuit-switched voice, allowing users to browse the web, send emails, make video calls, download music, and access early smartphone applications. With theoretical data speeds ranging from hundreds of kilobits per second to several megabits per second — further enhanced by upgrades like HSPA and HSPA+ — 3G marked the beginning of true mobile broadband. It also introduced improved spectral efficiency, better security mechanisms, and enhanced roaming capabilities. Although latency and speed were still limited compared to later generations, 3G played a crucial role in transforming mobile phones into internet-enabled smart devices and laid the technological foundation for the all-IP, high-speed networks that followed in the 4G era.",
+    "details": [
+      "Speed: 384 kbps – 2 Mbps",
+      "UMTS was based on Wideband-CDMA with packet switched data rate of 2.048 Mbps",
+      "Frequency of operation : 2100MHz",
+      "Bandwidth : 15-20MHz",
+      "Another 3G technology named EVDO (Evolution Data Optimised) provided data rate of 2.4 Mbps",
+      "3.5G → HSDPA (High Speed Downlink Packet Access) → 14 Mbps",
+      "3.5G → EVDO RevA → 3.1 Mbps",
+      "3.75G → HSPA+ (High Speed Packet Access +) → 42Mbps",
+      "3.75G → EVDO RevB → 14.3 Mbps",
+      "Enabled smartphones",
+      "Video calling introduced, Email, Web-browsing, Music download",
+      "Latency: 100–500 ms"
+    ]
+  },
+  {
+    "name": "4G (2010s)",
+    "shortDesc": "High-speed broadband, HD streaming, VoLTE.",
+    "image": "images/4g.jpg",
+    "tech": ["LTE", "LTE-Advanced"],
+    "descrip": "Fourth Generation (4G) mobile communication was introduced in the late 2000s to meet the rapidly growing demand for high-speed mobile internet and data-intensive applications, marking a significant shift toward an all-IP (Internet Protocol) based network architecture. Standardized under the ITU's IMT-Advanced framework, 4G aimed to deliver much higher data rates, lower latency, improved spectral efficiency, and seamless global roaming compared to 3G. The dominant 4G technology became LTE (Long Term Evolution), along with its enhanced version LTE-Advanced, which used advanced techniques such as OFDMA, MIMO (Multiple Input Multiple Output), and carrier aggregation to achieve peak data rates of up to 1 Gbps under ideal conditions. Unlike previous generations that relied partly on circuit-switched networks for voice, 4G adopted a fully packet-switched core, enabling services like Voice over LTE (VoLTE) and supporting high-definition video streaming, online gaming, mobile cloud computing, and real-time multimedia communication. The lower latency of 4G significantly improved user experience and made smartphones central to daily digital life, fueling the growth of social media, streaming platforms, ride-sharing services, and mobile commerce. By providing true mobile broadband and establishing a robust IP-based infrastructure, 4G laid the technological and architectural foundation for the ultra-low latency, massive connectivity, and service-based innovations that characterize 5G networks today.",
+    "details": [
+      "Release: Rel. 8-9 (LTE), Rel. 10-12 (LTE-Adv), Rel. 13-14 (LTE-Adv-Pro)",
+      "Speed: 50Mbps to 1Gbps",
+      "Uses OFDMA Technique which allowed multiple devices to send info. in a streamlined and more efficient manner.",
+      "All-IP architecture",
+      "VoLTE & HD streaming, Multiplayer games, Mobile commerce, Machine to Machine communication, Multimedia data transfer, Broadcast and Multicast facilities.",
+      "Latency: 30–50 ms",
+      "Key features of LTE architecture:",
+      "Separate radio, packet core, & Services n/w which allows infrastructure sharing and enables rapid deployment of applications & services.",
+      "Evolution to a common all-ip n/w. which reduced n/w complexity & cost along with backhaul & core transport costs.",
+      "Interoperability with 3G and other wireless n/w thus supporting service continuity across different technologies and availability of more applications & services to the end user."
+    ]
+  }
+]

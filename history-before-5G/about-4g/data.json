@@ -1,0 +1,306 @@
+{
+  "epcComponents": [
+    {
+      "id": "enb",
+      "title": "eNB (Evolved Node B)",
+      "icon": "fa-tower-cell",
+      "content": "An eNodeB (Evolved Node B) is the base station used in 4G LTE networks that provides the radio interface between user equipment (UE) and the core network. Unlike earlier generations where base stations depended heavily on centralized controllers, the eNodeB integrates both radio transmission and key control functions such as scheduling, radio resource management, mobility management, and handover decisions. It communicates with the core network (Evolved Packet Core) through the S1 interface and with neighboring eNodeBs through the X2 interface to enable seamless handovers.",
+      "points": [
+        "Radio Connection Management",
+        "Radio Resource Allocation",
+        "Performs handoff"
+      ]
+    },
+    {
+      "id": "mme",
+      "title": "MME (Mobility Management Entity)",
+      "icon": "fa-network-wired",
+      "content": "The Mobility Management Entity (MME) is a key control-plane component of the 4G LTE core network responsible for managing signaling and mobility for user devices. It handles tasks such as user authentication, registration, tracking area updates, bearer management, and handover control between eNodeBs. The MME does not process user data traffic; instead, it manages control signaling between the UE, the eNodeB, and other core network elements like the HSS and Serving Gateway.",
+      "points": [
+        "User Registration & authentication",
+        "Mobility Management of subscriber"
+      ]
+    },
+    {
+      "id": "hss",
+      "title": "HSS (Home Subscriber Server)",
+      "icon": "fa-database",
+      "content": "The Home Subscriber Server (HSS) is a central database component of the 4G LTE core network that stores and manages subscriber-related information required for authentication, authorization, and service provisioning. It contains details such as user identity (IMSI), subscription profiles, access permissions, roaming data, and security credentials used during the authentication process.",
+      "points": [
+        "Manages subscriber/device profile",
+        "Holds authentication, QoS and service parameters",
+        "Interfaces with other LTE and 3G N/W for roaming",
+        "MME interacts with HSS to validate & authenticate the user for access to LTE N/W"
+      ]
+    },
+    {
+      "id": "sgw",
+      "title": "S-GW (Serving Gateway)",
+      "icon": "fa-server",
+      "content": "The Serving Gateway (SGW) is a key user-plane component of the 4G LTE core network that acts as a routing and forwarding node for user data between the eNodeB and the Packet Data Network Gateway (PGW). It serves as the mobility anchor during handovers between eNodeBs, ensuring that ongoing data sessions remain uninterrupted as a user moves across different cells.",
+      "points": [
+        "Mobility anchor during handovers",
+        "Routing and forwarding node for user data"
+      ]
+    },
+    {
+      "id": "pgw",
+      "title": "P-GW (Packet Gateway)",
+      "icon": "fa-globe",
+      "content": "The Packet Data Network Gateway (PGW) is a crucial user-plane component of the 4G LTE core network that provides connectivity between the mobile network and external data networks such as the Internet or private enterprise networks. It allocates IP addresses to user equipment (UE), enforces Quality of Service (QoS) and charging policies received from the PCRF, and performs packet filtering and routing functions.",
+      "points": [
+        "Provides connectivity between the mobile network and external data networks",
+        "Allocates IP addresses to UE",
+        "Enforces QoS and charging policies from PCRF"
+      ]
+    }
+  ],
+
+  "lteAirInterface": [
+    {
+      "id": "duplex",
+      "title": "Duplexing Options",
+      "icon": "fa-arrows-left-right",
+      "content": "In the 4G LTE air interface, duplexing refers to the method used to separate uplink (UE to eNodeB) and downlink (eNodeB to UE) transmissions. LTE supports two main duplexing options: Frequency Division Duplex (FDD) and Time Division Duplex (TDD). Both modes use the same core LTE technologies such as OFDMA and MIMO.",
+      "points": [
+        "FDD: uplink and downlink operate simultaneously on two separate frequency bands — continuous transmission, lower latency, suitable for symmetric traffic.",
+        "TDD: single frequency band with time-separated uplink/downlink — flexible ratio adjustment based on traffic demand, useful for data-heavy applications."
+      ]
+    },
+    {
+      "id": "scalablebw",
+      "title": "Scalable Bandwidth",
+      "icon": "fa-sliders",
+      "content": "In the 4G LTE air interface, flexible and scalable bandwidth allows the network to operate over multiple channel options: 1.4 MHz, 3 MHz, 5 MHz, 10 MHz, 15 MHz, up to 20 MHz. LTE maintains a consistent subcarrier spacing of 15 kHz and adjusts the number of resource blocks accordingly.",
+      "points": [
+        "U.L. & D.L. may be operated with different system bandwidths (FDD only)",
+        "Smaller B.W. fits within legacy spectrum allocation (1.4MHz, 3MHz, 5MHz, 10MHz)",
+        "Wider B.W. supports higher data rates in latest spectrum allocation (15MHz or 20MHz)"
+      ]
+    },
+    {
+      "id": "datamod",
+      "title": "Data Modulation",
+      "icon": "fa-wave-square",
+      "content": "In the 4G LTE air interface, data modulation converts digital information into radio signals. LTE supports adaptive modulation schemes including QPSK, 16-QAM, and 64-QAM, with the network dynamically selecting the appropriate scheme based on channel quality feedback from the UE.",
+      "points": [
+        "Higher modulation schemes used in high SNR regions",
+        "1 QPSK symbol = 2 bits",
+        "1 16-QAM symbol = 4 bits",
+        "1 64-QAM symbol = 6 bits",
+        "1 256-QAM symbol = 8 bits"
+      ]
+    },
+    {
+      "id": "mimo",
+      "title": "MIMO Operation",
+      "icon": "fa-broadcast-tower",
+      "content": "In the 4G LTE air interface, MIMO (Multiple Input Multiple Output) uses multiple antennas at both the eNodeB and the UE to improve data throughput, reliability, and spectral efficiency through spatial multiplexing. LTE commonly supports 2×2 and 4×4 MIMO configurations.",
+      "points": [
+        "Improves coverage and link quality",
+        "Transmit diversity & beamforming",
+        "SU-MIMO: increases a single user's throughput up to 4x",
+        "MU-MIMO: increases throughput/capacity of eNB",
+        "MIMO does Spatial Multiplexing (Multiplexing in Space)"
+      ]
+    },
+    {
+      "id": "handover",
+      "title": "LTE Handover & Mobility",
+      "icon": "fa-right-left",
+      "content": "In the 4G LTE air interface, handover and mobility mechanisms ensure seamless connectivity as a user moves between cells. LTE uses a hard handover approach optimized to be extremely fast. The X2 interface between eNodeBs enables direct coordination, while the MME and SGW support mobility anchoring.",
+      "points": [
+        "2G, 3G: Soft handovers (Make before Break)",
+        "4G LTE: Hard handovers (Break then Make) — OFDMA waveform cannot be tuned to two cell sites simultaneously",
+        "Optimised for low speeds 0–15 kmph, functions up to 120 kmph"
+      ]
+    }
+  ],
+
+  "comparison": [
+    { "name": "2G", "speed": "50-100 kbps",      "latency": "up to 1000ms", "keyFeature": "SMS, Internet",                                          "year": "1990" },
+    { "name": "3G", "speed": "150Kbps - 40Mbps", "latency": "up to 200ms",  "keyFeature": "Email, Web-Browsing, GPS",                               "year": "2000" },
+    { "name": "4G", "speed": "50Mbps - 1Gbps",   "latency": "50ms",         "keyFeature": "High Speed Mobile Broadband, Mobile commerce, Multimedia","year": "2010" }
+  ],
+
+  "benefits": [
+    { "icon": "fa-check-circle", "title": "High-Speed Mobile Broadband",   "description": "4G delivers significantly higher data rates compared to 3G, enabling smooth web browsing, HD video streaming, online gaming, and fast downloads." },
+    { "icon": "fa-check-circle", "title": "Lower Latency",                 "description": "Reduced latency improves real-time applications such as video calls, VoIP, and interactive online services." },
+    { "icon": "fa-check-circle", "title": "All-IP Network Architecture",   "description": "4G is built on a fully packet-switched, IP-based network, allowing efficient integration with the internet and supporting services like VoLTE." },
+    { "icon": "fa-check-circle", "title": "Improved Spectral Efficiency",  "description": "Seamless handovers and mobility management ensure uninterrupted connectivity even at high speeds." },
+    { "icon": "fa-check-circle", "title": "Better Security",               "description": "Stronger encryption and authentication mechanisms provide improved data protection compared to earlier generations." }
+  ],
+
+  "applications": [
+    {
+      "name": "Mobile Video Streaming",
+      "icon": "fa-video",
+      "description": "4G enables smooth HD video streaming and faster content downloads, making mobile entertainment widely accessible.",
+      "items": ["HD video streaming", "YouTube and OTT platforms", "Fast media downloads", "Mobile TV services"]
+    },
+    {
+      "name": "Social Media & Real-Time Communication",
+      "icon": "fa-comments",
+      "description": "Improved speed and lower latency supports seamless social networking and real-time communication.",
+      "items": ["Video calling", "VoLTE (Voice over LTE)", "Instant messaging apps", "Live social media streaming"]
+    },
+    {
+      "name": "Mobile Commerce & Online Services",
+      "icon": "fa-cart-shopping",
+      "description": "4G powers the rapid growth of digital payments, online shopping, and app-based services.",
+      "items": ["Mobile banking", "UPI and digital wallets", "E-commerce platforms", "Ride-hailing and food delivery apps"]
+    },
+    {
+      "name": "Navigation & Location-Based Services",
+      "icon": "fa-map-location-dot",
+      "description": "High-speed connectivity improves GPS accuracy and real-time map services.",
+      "items": ["Turn-by-turn navigation", "Real-time traffic updates", "Location tracking", "Geo-based advertisements"]
+    },
+    {
+      "name": "Cloud Applications & Productivity",
+      "icon": "fa-cloud",
+      "description": "4G enables users to access cloud storage and enterprise tools from mobile devices efficiently.",
+      "items": ["Cloud storage access", "Remote work tools", "Video conferencing", "Online collaboration platforms"]
+    }
+  ],
+
+  "roadTo5g": [
+    {
+      "id": "alwayson",
+      "title": "Always-On Connectivity",
+      "icon": "fa-wifi",
+      "content": "One of the key features of 4G LTE is its always-on connectivity, enabled by its all-IP, packet-switched architecture. 4G maintains a persistent IP connection, allowing UE to remain continuously attached and reachable even when not actively transmitting data.",
+      "points": [
+        "During registration, a data connection is also established in the EPS.",
+        "User device has an IP address assigned to it.",
+        "Enables faster connection transition from idle to active data.",
+        "Initial default connection is typically best effort."
+      ]
+    },
+    {
+      "id": "multipdnconn",
+      "title": "Connection with Multiple Packet Data N/W",
+      "icon": "fa-network-wired",
+      "content": "In 4G LTE, a UE can simultaneously connect to multiple Packet Data Networks (PDNs), such as the public Internet, IMS network for VoLTE, or a private enterprise network, through separate PDN connections each with its own IP address.",
+      "points": [
+        "Multiple APNs supporting a range of services.",
+        "Availability based on user subscription profiles stored in HSS.",
+        "User device may have more than one IP address assigned."
+      ]
+    },
+    {
+      "id": "apn",
+      "title": "Access Point Names (APNs)",
+      "icon": "fa-route",
+      "content": "An APN in 4G LTE is a configuration parameter that defines the gateway between the mobile network and a specific Packet Data Network. It influences IP address allocation, QoS settings, security rules, and charging parameters.",
+      "points": [
+        "APN identifies the packet data connection & the service.",
+        "One or more APNs may be served by P-GW.",
+        "A subscriber's allowed APNs are stored in the HSS & in the user's SIM card."
+      ]
+    },
+    {
+      "id": "voicein4g",
+      "title": "Voice Services in 4G",
+      "icon": "fa-phone",
+      "content": "In 4G LTE, voice services are primarily delivered through Voice over LTE (VoLTE), using the IMS architecture to transmit voice as data packets over the LTE network, providing HD voice quality and faster call setup times.",
+      "points": [
+        "VoLTE: VoIP services supported by LTE through an IMS framework.",
+        "CSFB (Circuit Switched Fallback): Voice services over an existing 2G/3G circuit switched n/w using a single radio device.",
+        "VoWiFi: Voice services via 802.11 WiFi hotspots."
+      ]
+    },
+    {
+      "id": "enmimo",
+      "title": "Enhanced MIMO",
+      "icon": "fa-broadcast-tower",
+      "content": "Enhanced MIMO in LTE-Advanced extends antenna configurations to 4×4 uplink and 8×8 downlink, allowing multiple independent data streams through spatial multiplexing on the same frequency band.",
+      "points": [
+        "Up to 4×4 MIMO on Uplink",
+        "Up to 8×8 MIMO on Downlink",
+        "Single user & multi-user MIMO on downlink & uplink",
+        "Higher efficiency, increased capacity, greater throughput."
+      ]
+    },
+    {
+      "id": "epsbearer",
+      "title": "EPS Bearer",
+      "icon": "fa-diagram-project",
+      "content": "An EPS Bearer in 4G LTE is a logical communication path between the UE and the PGW carrying user data with specific QoS parameters. A default bearer is created at connection; dedicated bearers can be added for services like VoLTE.",
+      "points": [
+        "The EPS Bearer is an LTE data connection.",
+        "Defines level of QoS control within the connection.",
+        "All apps mapped to an EPS bearer get the same QoS treatment through E-UTRAN and EPC.",
+        "To assign different QoS to different apps, multiple EPS bearers are needed."
+      ]
+    },
+    {
+      "id": "laa",
+      "title": "LTE-Advanced LAA",
+      "icon": "fa-tower-broadcast",
+      "content": "Licensed Assisted Access (LAA) allows 4G networks to use unlicensed spectrum bands (5 GHz) alongside licensed spectrum via carrier aggregation to increase data capacity, using Listen Before Talk (LBT) for fair coexistence with Wi-Fi.",
+      "points": [
+        "Unlicensed Band: 5GHz (typically used for WiFi)",
+        "LAA allows carrier aggregation between licensed & unlicensed bands.",
+        "Free capacity for operators but governed by usage regulations.",
+        "WiFi is a virtual extension of LTE."
+      ]
+    }
+  ],
+
+  "carrierAggregation": [
+    {
+      "id": "ca",
+      "title": "Carrier Aggregation",
+      "icon": "fa-layer-group",
+      "content": "Carrier Aggregation (CA), introduced in LTE-Advanced (Release 10), combines multiple frequency carriers (component carriers) to increase total available bandwidth and boost data rates — up to 100 MHz total. CA can be intra-band contiguous, intra-band non-contiguous, or inter-band.",
+      "points": [
+        "AIR INTERFACE: Increased data rates, Enhanced MIMO",
+        "SYSTEM: Heterogeneous Networks (HetNets), Small cells for high load areas.",
+        "CA = 2 to 5 Component Carriers (CC) aggregated into a larger bandwidth.",
+        "Component carriers are backward compatible (older UE compatible).",
+        "Permits using 100MHz of spectrum (5 × 20MHz).",
+        "Flexible CC allocation allows efficient use of RF spectrum.",
+        "Increased B.W. enables higher data rates."
+      ]
+    }
+  ],
+
+  "lteEvolution": [
+    {
+      "id": "rel10",
+      "title": "Release 10 — LTE-Advanced",
+      "icon": "fa-code-branch",
+      "content": "3GPP Release 10 marked the introduction of LTE-Advanced, meeting IMT-Advanced requirements. Key features: carrier aggregation (up to 5×), enhanced MIMO (DL: 8×8, UL: 4×4), relay nodes, and HetNet support.",
+      "points": ["June 2011", "Carrier Aggregation (up to 5×)", "Enhanced MIMO (DL: 8×8, UL: 4×4)", "HetNets (Heterogeneous networks)", "Home eNB", "New UE Category"]
+    },
+    {
+      "id": "rel11",
+      "title": "Release 11",
+      "icon": "fa-code-branch",
+      "content": "Release 11 improved performance in dense/heterogeneous deployments with enhanced CA, CoMP (Coordinated Multi-Point), enhanced eICIC, and better small cell and relay node support.",
+      "points": ["March 2013", "CA Enhancement", "CoMP", "Enhanced eICIC", "New UE category"]
+    },
+    {
+      "id": "rel12",
+      "title": "Release 12",
+      "icon": "fa-code-branch",
+      "content": "Release 12 introduced TDD-FDD CA aggregation, Device-to-Device (D2D) communication, Proximity Services (ProSe), early MTC/IoT enhancements, and improved mobility and power efficiency.",
+      "points": ["March 2015", "DL 256 QAM", "FDD + TDD CA", "D2D", "Dual Connectivity", "Split UE category"]
+    },
+    {
+      "id": "rel13",
+      "title": "Release 13 — LTE-Advanced Pro",
+      "icon": "fa-code-branch",
+      "content": "Release 13 introduced LTE-Advanced Pro — a bridge to 5G — with LAA for unlicensed spectrum, NB-IoT, LTE-M for low-power wide-area IoT, and higher-order MIMO.",
+      "points": ["March 2016", "32× CA", "LAA", "eMTC & NB-IoT", "LWA/LWP", "FD-MIMO", "Split UE category"]
+    },
+    {
+      "id": "rel14",
+      "title": "Release 14",
+      "icon": "fa-code-branch",
+      "content": "Release 14 enhanced NB-IoT/LTE-M, introduced V2X (Vehicle-to-Everything) communication, improved LAA, and higher-order MIMO while preparing the ecosystem for 5G transition.",
+      "points": ["April 2017", "Higher order MIMO", "eLAA", "V2X", "D2D enhancement", "Shared LTE broadcast", "Latency improved"]
+    }
+  ]
+}

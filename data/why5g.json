@@ -1,0 +1,87 @@
+{
+  "subtitle": "The Next Generation of Connectivity.<br>5G is the fifth generation of mobile wireless technology. Mobile communication began with analog cellular systems (1G) in the 1980s, and has evolved through multiple generations to enable global connectivity for people, devices, and machines.<br><br> The dimensions of impact of 5G technology are-<br><strong>                     • Service capabilities<br>                     • Radio air interface technology<br>                     • Data rate and capacity<br>                     • Spectrum utilization<br>                     • Network performance and latency</strong>",
+
+  "featureCards": [
+    {
+      "icon": "⚡",
+      "title": "Blazing Fast Speeds",
+      "description": "5G can support peak data rates up to <strong>20 Gbps</strong>, which can be tens of times faster than typical 4G LTE speeds. Download a full HD movie in seconds, not minutes.<br>5G offers fast and <strong>uninterrupted sharing</strong>, <strong>streaming</strong> and <strong>browsing</strong>.",
+      "stats": [
+        { "value": "10 Gbps", "label": "Peak Speed" },
+        { "value": "100x",    "label": "Faster than 4G" }
+      ]
+    },
+    {
+      "icon": "⏱️",
+      "title": "Ultra-Low Latency",
+      "description": "5G can achieve latencies as low as <strong>1 ms</strong> in URLLC scenarios, enabling real-time applications like remote surgery and autonomous vehicles.",
+      "stats": [
+        { "value": "&lt; 1 ms",  "label": "Latency" },
+        { "value": "Real-time",  "label": "Response" }
+      ]
+    },
+    {
+      "icon": "📱",
+      "title": "Massive Connectivity",
+      "description": "Support for up to <strong>1 million devices per square kilometer</strong>, enabling smart cities and massive IoT deployments.",
+      "stats": [
+        { "value": "1M+",       "label": "Devices/km²" },
+        { "value": "IoT Ready", "label": "Scale" }
+      ]
+    },
+    {
+      "icon": "💫",
+      "title": "Special features",
+      "description": "Allows multiple virtual networks to run on the same physical infrastructure, each optimized for specific services or applications, Enables dynamic management and scaling of network resources based on service demand, Optimizes the use of network resources, improving overall performance and capacity, Uses advanced technologies to reduce power consumption while maintaining high network performance.",
+      "stats": [
+        { "value": "🍕 Network Slicing","label": " " },
+        { "value": "⚙️ Operational Flexibility", "label": " " },
+        { "value": "📈 Resource efficiency", "label": " " },
+        { "value": "🔋 Energy Efficiency", "label": " " }
+      ]
+    }
+  ],
+
+  "applications": [
+    { "icon": "🏥", "title": "Telemedicine",         "description": "Remote surgery and real-time patient monitoring" },
+    { "icon": "🚗", "title": "Autonomous Vehicles",  "description": "Vehicle-to-everything (V2X) communication" },
+    { "icon": "🏭", "title": "Industry 4.0",         "description": "Smart factories with real-time automation" },
+    { "icon": "🎮", "title": "AR/VR",                "description": "Immersive gaming and virtual experiences" }
+  ],
+
+  "comparisonTable": {
+    "headers": ["Feature", "4G LTE", "5G", "Improvement"],
+    "rows": [
+      { "cells": ["Peak Data Rate",    "1 Gbps",       "20 Gbps",  "20x"] },
+      { "cells": ["Latency",           "30-50 ms",     "1-10 ms",     "50x"] },
+      { "cells": ["Connected Devices", "10,000/km²",   "1M/km²",   "100x"] },
+      { "cells": ["Energy Efficiency", "1x",           "10x",      "10x"] }
+    ]
+  },
+
+  "spectrumCard": {
+    "icon": "⚡",
+    "title": "5G Spectrum<br> For Coverage => Low frequency bands<br>For Balance => Mid frequency bands<br> For High capacity => Higher frequency bands",
+    "description": "5G Frequency Bandwidth : sub-GHz frequencies to above 24 GHz<br>FR1 —→ freq = 410 MHz – 7.125 GHz (for broad coverage)                            <br>FR2 —→ freq = 24.25 GHz – 52.6 GHz (for high-speed, short-range capacity)<br> Frequency               Coverage               Capacity <br> ↓                              ↑                              ↓<br>↑                              ↓                              ↑<br>←--4G LTE--→                                                                                   <br>——│——│——|——│——│——│——│——│——│——│——│——│<br>               1GHz               3GHz          10GHz                  30GHz                     100GHz<br>←------5G-NR-------→                                       ←---5G-NR---→      ",
+    "stats": [
+      { "value": "800MHz",   "label": "Low Band (Rural)" },
+      { "value": "3.5GHz",   "label": "Mid Band (Suburban)" },
+      { "value": "26-28GHz", "label": "High Band (Urban)" }
+    ]
+  },
+
+  "additionalTopics": [
+    {
+      "title": "PaaS",
+      "content": "Platform as a Service (PaaS) is a cloud computing model that provides a ready-to-use platform for developing, running, and managing applications without dealing with underlying infrastructure like servers, storage, or networking. <br>It offers tools, runtime environments, databases, middleware, and development frameworks so developers can focus only on writing and deploying code. The cloud provider manages system maintenance, scaling, and updates.<br>In telecom and 5G environments, PaaS helps deploy cloud-native applications, network functions, and edge services efficiently by providing scalable and automated development platforms.<br>In simple terms, PaaS gives you a complete development platform in the cloud without managing hardware or operating systems."
+    },
+    {
+      "title": "NEP",
+      "content": "Network Energy Performance (NEP) refers to how efficiently a telecommunications network uses energy while delivering services. It measures the relationship between network performance (such as data throughput, coverage, and capacity) and the amount of power consumed.<br>In modern networks like 5G, improving energy performance is crucial because of dense deployments, massive MIMO, and high data traffic. Techniques such as sleep modes, dynamic resource allocation, energy-efficient hardware, AI-based traffic optimization, and network function virtualization help reduce power consumption.<br>In simple terms, Network Energy Performance evaluates how well a network delivers high performance while minimizing energy usage and operational costs."
+    },
+    {
+      "title": "Ultra Lean Design",
+      "content": "Ultra-Lean Design is a 5G network design principle aimed at minimizing always-on transmissions and reducing unnecessary signaling in the radio interface. The goal is to improve energy efficiency, reduce interference, and enhance overall spectral efficiency.<br>Unlike earlier generations where many reference and control signals were continuously transmitted, 5G's ultra-lean approach ensures that transmissions occur only when needed. This reduces power consumption at both the base station and user equipment, and improves coverage and capacity.<br>In simple terms, Ultra-Lean Design makes the 5G radio interface cleaner, more efficient, and more energy-saving by eliminating unnecessary transmissions."
+    }
+  ]
+}

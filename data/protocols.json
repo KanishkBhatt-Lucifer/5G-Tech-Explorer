@@ -1,0 +1,310 @@
+{
+  "dns": {
+    "title": "DNS - Domain Name System",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp",
+      "dep-tunnel"
+    ],
+    "content": "֎ <b>DNS</b> helps UE/gNB/5GC discover IP address and resolve FQDN of network functions or DN (Data Network).<br>\n                • gNB ----Where is AMF?----> DNS<br>\n                • AMF ----Where is SMF?----> DNS<br>\n                • SMF ----Where is UPF?----> DNS<br>\n      ֎ During PDU Session establishment, SMF use DNS to resolve :<br>\n                • Fully Qualified Domain name (FQDN) of UPF.<br>\n                • FQDN of DN/ Internet gateway.<br>\n                • External services if a UE requests a domain.<br><br>\n      \n                    <--------------------Inside the core---------------><-------Outside the core-----><br>\n      ֎           UE --> gNB --> AMF -------> DNS <------- SMF : DNS ---------------------> UE<br>\n                                      • Initial Reg. of UE to the AMF →<br>\n                                      • AMF resolves SMF FQDN →<br>\n                                      • SMF resolves UPF FQDN →<br>\n                                      • DNS connect UE to the server<br><br>\n\n      ֎ Without DNS : <br>\n                • Network Function can't find each other.<br>\n                • UE can't reach website.<br>\n                • PDU session would fail at UPF selection range.<br>\n    "
+  },
+  "mdns": {
+    "title": "mDNS - Multicast DNS",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-dns",
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "\n      ֎ Multicast DNS over UDP (Port : 5353) (Multicast Ip : 224.0.0.251).<br>\n      ֎ Local n/w service discovery portal.<br>\n      ֎ It allows devices in the same LAN to discover each other without a DNS server.<br>\n                • Example devices - Chorecast, Smart T.Vs, IoT Devices, Printers, cameras <br>\n           <u>Normal DNS</u> : asks a DNS server<br>\n           <u>mDNS</u> : shoutout in LAN => \"Who has this name?\". Devices reply to everyone<br>\n      ֎ mDNS is not a part of 5G protocol or PDU session establishment.<br><br>\n                UE ------> mDNS multicast ------> Local devices in same subnet (multicast)<br><br>\n      ֎ mDNS is useful to test multicast support.<br>\n      ֎ In 5G private n/w, mDNS is often used for -<br>\n                • local device discovery<br>\n                • edge computing service announcements<br>\n                • zero configuration networking<br>\n      ֎ If UPF doesnot allow multicast then mDNS fails.\n    "
+  },
+  "icmp": {
+    "title": "ICMP - Internet Control Message Protocol",
+    "layers": [
+      3
+    ],
+    "stack": [
+      "dep-ip"
+    ],
+    "content": "\n      ֎ ICMP is used for network reachability testing & error reporting.<br>\n      ֎ Example <b>ping</b> : ICMP echo req/ echo reply.                        <br>\n                • Tells if a server , UPF or any other IP is reachable.<br>\n                • Latency check.<br>\n      ֎ ICMP works on IP layer therefore no port needed.<br>\n      ֎ ICMP is not used inside 5GC-CP.<br>\n      ֎ It is just used to check reachability & routing for UPF, SMF, DN, AMF etc.<br>\n      ֎ ICMP versions : ICMP & ICMPv6<br><br>\n                            ---------------Send ICMP echo req---------------><br>\n                            UE                                 UPF                               DN<br>\n                            <----------ICMP echo reply comes back----------<br>\n      <br>ICMP confirms :<br>\n                • ICMP helps verify end-to-end IP connectivity.<br>\n                • UPF forwarding rules are correct.<br>\n                • Internet breakout ok.<br>\n                • NAT/Firewall is not blocking UE traffic.\n    "
+  },
+  "ntp": {
+    "title": "NTP - Network Time Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp"
+    ],
+    "content": "\n      ֎ NTP is used to synchronise time across all devices and servers in a network.<br>\n                • Ensures accurate system clock.<br>\n                • Correct logging, security check & protocol timing.<br>\n      ֎ <b>Port:</b> UDP 123<br>\n      ֎ <b>Why Time is Important in 5G:</b><br>\n                • Required for secure authentication (5G-AKA)<br>\n                • Needed for charging and billing accuracy      <br>\n                • Critical for URLLC timing precision                 <br>\n                • Keeps network functions synchronized           <br>\n      ֎ 5G prefers <b> PTP (IEEE1588)</b> for radio timing as it provides very accurate sync over ethernet but <b>NTP</b> is heavily used for core n/w timing.<br>\n      ֎ Large offset in the <b>Delay & offset Field</b> implies <b>out of sync.</b><br>\n      ֎ <b>NTP Versions:</b><br>\n                • NTPv4 (most common) & SNTP (Simple NTP – lightweight version)<br>\n      ֎ <b>Time Accuracy:</b><br>\n                • Millisecond level over internet                  <br>\n                • Microsecond level in controlled networks\n      \n    "
+  },
+  "quic": {
+    "title": "QUIC - Quick UDP Internet Connections",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp"
+    ],
+    "content": "\n      ֎ <b>It is a modern transport protocol built on the top of the UDP</b>, designed by google & later adopted as an IETF standard.<br>\n      ֎ <b>Transport:</b> UDP (Port 443)<br>\n      ֎ Used in HTTP/3<br>\n      ֎ <b>Used By:</b> Youtube, google services, facebook, Instagram, Netflix, Chrome, firefox, etc.<br>\n      ֎ QUIC replaces -<br>\n                • TCP handshake<br>\n                • TLS handshake <br>\n                • Some HTTP functions<br>\n      ֎ QUIC gives - faster connection setup, better performance in mobile networks, stream multiplexing, Built-in encryption<br>\n      ֎ QUIC integrates transport + TLS + multiplexing similar to HTTP/2 features.<br>It is a combination of one fast protocol over UDP.<br>\n      ֎ <b>Purpose:</b><br>\n                • Fast and secure internet communication<br>\n                • Reduces connection setup time<br>\n                • Built-in encryption (TLS 1.3) : Everything QUIC sends is encrypted, even packet number.<br>\n                • QUIC can't be decoded unless you have TLS key.<br>\n\n      ֎ <b>Main Features:</b><br>\n          • Lower latency compared to TCP+TLS<br>\n          • Handles mobility better ie. improved mobile performance<br>\n          • 0-RTT connection setup ie. quick handshakes<br>\n          • No head-of-line blocking<br>\n          • Multiplexed streams<br>\n          • Better throughput over radio (less sensitive to packet loss).<br>\n\n      ֎ <b>In 5G:</b><br>\n                • QUIC is not a part of 5G core signaling but heavily used in user-plane traffic.<br>\n                • QUIC is not used for registration/NAS/NGAP/SMF or UPF communication/PFCP/GTP-U.<br>  \n                • Faster web browsing over high-speed 5G<br>\n                • Better performance in mobility scenarios<br>\n                • After PDU session establishment, QUIC traffics is extreamly common as most APPs running on UE now use QUIC.<br>\n      ֎ <b>Encapsulation in 5G:</b><br>\n                 UE ---> establishes PDU session ---> UE opens YT : UE-->gNB-->UPF-->DN(Traffic)<br>\n                           • UPF sees UDP/443 port packets (QUIC Packets)<br>\n                           • YT responds with QUIC encrypted video streams.\n    "
+  },
+  "tls": {
+    "title": "SSL/TLS - Secure Transport Layer",
+    "layers": [
+      6,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp"
+    ],
+    "content": "֎ <b>Full Form:</b><br>\n                    • SSL: Secure Sockets Layer (old version)<br>\n                    • TLS: Transport Layer Security (modern version TLS 1.3)<br>\n\n          ֎ <b>Layer:</b> Operates between transport and application layers<br>\n          ֎ <b>Works With:</b> TCP<br>\n\n          ֎ <b>Purpose:</b><br>\n                    • Provides encryption + authentication for secures client–server communication<br>\n                    • It also ensures data integrity<br>\n                    • TLS encrypts all data after handshake<br>\n          ֎ <b>Used In:</b><br>\n                    • HTTPS websites, Banking applications, Secure APIs, Email security<br>\n\n          ֎ <b>TLS 1.3 Handshake:</b><br>\n                    • Client Hello<br>\n                    • Server Hello<br>\n                    • Encrypted Handshake<br>\n                    • Encrypted Application Data<br>\n\n          ֎ <b>In 5G Core:</b><br>\n                    • SSL is not used inside 5G core signaling.<br> \n                    • Core uses HTTP/2 + TLSv1.3 for SBI (NF ↔ NF communication)<br>\n                    • Protects control plane service-based interfaces<br>\n                    • Not used for NAS or RRC signaling, ie. TLS is not a part of PDU session signaling.<br>\n                    • TLS traffic usually appears after IP connectivity (PDU session) is established.<br>\n          ֎ <b>Inside Core</b> : TLS provides cybersecurity in SBI.<br>\n          ֎ <b>In User Plane Traffic</b > : Apps use HTTPS (TLS 1.3) for encrypted data streaming.<br>\n\n          ֎ Encapsulation:<br>\n                    • GTP-U tunnels TLS traffic between gNB & UPF.<br>\n                    • TLS over TCP over IP → GTP-U → 5G Tunnel<br>\n\n          ֎ <b>Important:</b><br>\n                    • Without TLS → Data travels in plain text<br>\n                    • With TLS → Data is encrypted\n            "
+  },
+  "tcp": {
+    "title": "TCP - Transmission Control Protocol",
+    "layers": [
+      4,
+      3
+    ],
+    "stack": [
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp",
+      "dep-tunnel"
+    ],
+    "content": "֎ <b>Layer:</b> Transport Layer (Layer 4)<br>֎ It is the most common transport layer protocol befor QUIC.<br>\n\n              ֎ <b>Main Features:</b><br>\n                        • Reliable delivery<br>\n                        • Ordered packets<br>\n                        • Retransmission of lost packets<br>\n                        • Flow control (window size)<br>\n                        • Congestion control<br>\n                        • Connection-oriented (3-way handshake)<br>\n\n              ֎ <b>3-Way Handshake:</b><br>\n                        • SYN (Client → Server)<br>\n                        • SYN-ACK (Server → Client)<br>\n                        • ACK (Client → Server)<br>\n              Connection Established. After this TLS may start.<br>\n\n              ֎ <b>Connection Termination:</b><br>\n                        • FIN<br>\n                        • RST (Reset if needed)<br>\n                        • Retransmission<br>\n\n              ֎ <b>Used In:</b><br>\n                        • HTTPS (TLS over TCP)<br>\n                        • API calls<br>\n                        • File downloads<br>\n                        • Web browsing (HTTP/1.1, HTTP/2)<br>\n\n              ֎ <b>In 5G:</b><br>\n                        • Not used in RAN control signaling (Control plane uses SCTP between gNB<-->AMF)<br>\n                        • Used inside core : HTTP/2 over TLS over TCP (SBI communication)<br>\n                        • All SBI messages ultimately rides over TCP (Inside Core) ie. SBI uses HTTP/2 over TLS over TCP.\n                        • Most apps use HTTP over TCP (UPF after PDU session setup)<br>\n\n              ֎ <b>Encapsulation in 5G User Plane:</b><br>\n                        UE TCP Packets → IP → GTP-U Tunnel → UPF → Data Network\n    "
+  },
+  "udp": {
+    "title": "UDP - User Datagram Protocol",
+    "layers": [
+      4,
+      3
+    ],
+    "stack": [
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp",
+      "dep-tunnel"
+    ],
+    "content": "֎ <b>Layer:</b> Transport Layer (Layer 4)<br>\n              ֎ Connectionless transport protocol.<br>\n              ֎ Faster than TCP (no handshake, no retransmission control).<br>\n\n              ֎ <b>Main Features:</b><br>\n                        • No connection setup<br>\n                        • No guaranteed delivery<br>\n                        • No packet ordering<br>\n                        • Low latency<br>\n                        • Small header (8 bytes)<br>\n\n              ֎ <b>No Handshake:</b><br>\n                        • Data sent directly<br>\n                        • No SYN / ACK process<br>\n\n              ֎ <b>Used In:</b><br>\n                        • DNS<br>\n                        • NTP<br>\n                        • QUIC<br>\n                        • RTP (Voice / Video)<br>\n                        • Online gaming<br>\n\n              ֎ <b>In 5G:</b><br>\n                        • Used for PFCP (SMF ↔ UPF over N4)<br>\n                        • Used for DNS and QUIC traffic from UE<br>\n                        • Used for RTP in IMS (VoNR media)<br>\n                        • Preferred for low-latency applications<br>\n\n              ֎ <b>Encapsulation in 5G User Plane:</b><br>\n                        UE UDP Packets → IP → GTP-U Tunnel → UPF → Data Network\n    "
+  },
+  "sip": {
+    "title": "SIP - Session Initiation Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp"
+    ],
+    "content": "\n      ֎ <b>Layer:</b> Application Layer (Layer 7)<br>\n      ֎ SIP is a signaling protocol (control plane of IMS) used to set up, modify and tear down voice/video calls over IP.<br>\n        SIP signaling is carried over the user plane via IMS PDU session, not 5G-CP signaling.<br>\n\n      ֎ <b>Purpose:</b><br>\n                • Call setup<br>\n                • Call modification<br>\n                • Call termination<br>\n                • User registration in IMS<br>\n\n      ֎ <b>Important:</b><br>\n                • SIP does NOT carry voice, only signaling.<br>\n                • Voice/media is carried by RTP.<br>\n\n      ֎ <b>Common SIP Messages:</b><br>\n                • REGISTER<br>\n                • INVITE<br>\n                • 100 Trying<br>\n                • 180 Ringing<br>\n                • 200 OK<br>\n                • ACK<br>\n                • BYE<br>\n                • CANCEL<br>\n                • UPDATE<br>\n                • PRACK <br>\n      ֎ Call setup :      INVITE →    =>   Voice media starts   =>   Call End<br>\n                              ← 100 TRYING              [RTP packets]              → BYE<br>\n                               ← 180 RINGING                                             ← 200 OK<br>\n                              ← 200 OK<br>\n                                   ACK →<br>\n\n      ֎ <b>Ports:</b><br>\n                • UDP 5060<br>\n                • TCP 5060<br>\n                • TLS 5061 (SIPS)<br><br>\n\n      ֎ <b>In 5G (VoLTE / VoNR):</b><br>\n                • Used inside IMS only<br>\n                • SIP is not used for PDU session establishment. SIP becomes active only after IMS PDU session is established<br>\n                • UE ↔ gNB ↔ UPF ↔ IMS<br>\n                • RTP carries actual voice packets<br>\n\n      ֎ <b>For VoLTE/VoNR:</b><br>\n                • UE sets up 2 PDU Sessions:<br>\n                            1) IMS APN/DNN → SIP signaling (default 5QI=5)<br>\n                            2) Internet APN/DNN → Data traffic<br>\n                • VoLTE/VoNR typically uses SIP & RTP over UDP.<br>\n\n      ֎ <b>Encapsulation in 5G:</b><br>\n                          UE → UDP/TCP → IP → GTP-U → UPF → IMS<br>\n                • SIP is used b/w UE & IMS server through the 5G user plane.<br> \n\n      ֎ Without IMS PDU session → No SIP → No voice service.\n    "
+  },
+  "pfcp": {
+    "title": "PFCP - Packet Forwarding Control Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "\n      ֎ <b>Control protocol between SMF ↔ UPF.</b><br>\n      ֎ <b>Layer:</b> Application Layer (Control Plane Protocol)<br>\n      ֎ <b>Transport:</b> UDP (Port 8805)<br>\n\n      ֎ <b>Between:</b><br>\n                • SMF ↔ UPF (N4 Interface)<br>\n                • Control Plane ↔ User Plane<br>\n\n      ֎ <b>Purpose:</b><br>\n                • Tells UPF how to handle user-plane packets<br>\n      ֎ During PDU session, SMF sends PFCP messages to UPF to :<br>\n                • Creates GTP-U tunnels<br>\n                • Installs forwarding (PDRs) and QoS rules (QERs)<br>\n                • Create forwarding action rules (FARs)<br>\n                • Apply TEIDs<br>\n                • Manage session lifetime<br>\n\n      ֎ <b>Main Rules Installed (Rules that tell the UPF how to treat UE packets) :</b><br>\n                • PDR (Packet Detection Rule)<br>\n                • FAR (Forwarding Action Rule)<br>\n                • QER (QoS Enforcement Rule)<br>\n                • URR (Usage Reporting Rule)<br>\n                • TEID allocation<br>\n\n      ֎ <b>In PDU Session Establishment:</b><br>\n                 1) UE requests PDU session<br>\n                 2) AMF forwards it to SMF<br>\n                 3) SMF selects UPF<br>\n                 4) SMF sends PFCP Session Establishment Request to UPF<br>\n                               - PDR for Dl & UL<br>\n                               - FAR for forwading packets<br>\n                               - QER for QoS(5QI)<br>\n                               - TEID for GTP-U Tunnel<br>\n                               - Outer header creation (gNB IP + TEID)<br>\n                 5) UPF installs rules & assigns TEIDs<br>\n                 6) UPF sends PFCP Session Establishment Response to SMF<br>\n                        UPF confirms<br>\n                               - Rules installed<br>\n                               - TEIDs assigned<br>\n                               - Session ready<br>\n                 7) SMF sends N2(NAS) message via AMF to gNB<br>\n                 8) gNB uses TEIDs from UPF to build GTP-U Tunnels<br>\n                 9) GTP-U tunnel becomes ready<br>\n                 10) User-plane traffic starts flowing<br>\n\n      ֎ <b>Heartbeat:</b><br>\n                • SMF & UPF exchange periodic heartbeats<br>\n                • PFCP Heartbeat Request/Response<br>\n                • If heartbeat fails → UPF considered down → SMF tears session<br>\n\n      ֎ <b>Important:</b><br>\n                • PFCP is the brain controlling UPF<br>\n                • Without PFCP → UPF cannot forward UE traffic and PDU session would fail because UPF has no rules.<br>\n                • PFCP is control plane only (no user data carried).<br>\n                • PFCP is the last step before user data starts flowing.\n    "
+  },
+  "gtpu": {
+    "title": "GTP-U : GPRS Tunneling Protocol - User plane",
+    "layers": [
+      3
+    ],
+    "stack": [
+      "dep-ip",
+      "dep-gtp",
+      "dep-tunnel"
+    ],
+    "content": "\n    ֎ This is the protocol that actually carries UE's data (Internet Packets) inside tunnels across 5G.<br>\n    ֎ <b> User Plane Protocol </b><br>\n    ֎ <b>Transport:</b> UDP (Port 2152)<br>\n\n    ֎ <b>Purpose:</b><br>\n              • Carries UE user data (Internet traffic)<br>\n              • Creates tunnels across 5G network<br>\n              • Encapsulates IP packets<br>\n\n    ֎ <b>Between:</b><br>\n              • gNB ↔ UPF (N3 Interface)<br>\n\n    ֎ <b>Encapsulation:</b><br>\n              UE IP Packet → GTP-U Header → UDP → IP → gNB → UPF<br>\n\n    ֎ <b>TEID (Tunnel Endpoint Identifier):</b><br>\n              • Unique per PDU session<br>\n              • UPF assigns DL TEID<br>\n              • gNB assigns UL TEID<br>\n              • If TEID mismatch → No user data<br>\n    ֎ gNB & UPF IP address → Used as outer tunnel points<br>\n    ֎ Sequence numbers → Used for reordering in some vendors<br>\n\n    ֎ <b>In PDU Session Establishment:</b><br>\n              • UE send PDU session request →<br>\n              • SMF selected →<br>\n              • SMF sends PFCP session establishment to UPF →<br>\n              • UPF creates TEIDs →<br>\n              • AMF sends N2 messages to gNB with TEIDs →<br>\n              •  gNB builds GTP-U tunnel →<br>\n              • User-plane traffic starts <br>\n    ֎ GTP-U flow direction :<br>\n              UpLink : UE → gNB → GTP-U → UPF → DN\n            DownLink : DN ← UPF ← GTP-U ← gNB ← UE<br>\n    ֎ <b>Features:</b><br>\n              • Each PDU session has at least one GTP-U tunnel.<br>\n              • All user data traffic (TCP, TLS, QUIC, SIP, RTP, DNS, anything) flow inside GTP-U<br>\n              • Supports QoS flows (5QI is mapped inside PDU session rules)<br>\n              • Supports mobility (handover reroutes tunnels)<br>\n              • Allows slicing (Different TEID paths for different slices)<br>\n              • Works with PFCP (PFCP installs rules; GTP-U carries data)<br>\n\n    ֎ <b>Common Issues:</b><br>\n             • No internet even though PDU session established<br>\n                       - Wrong TEID<br>\n                       - Missing PFCP session<br>\n                       - GTP-U tunnel not created on gNB<br>\n                       - FAR misconfigured<br>\n             • UE works but DL doesnot<br>\n                       - Problem in DL TEID or FAR<br>\n             • High latency<br>\n                       - Problem in UPF CPU load<br>\n                       - Problem in GTP-U sequence numbers<br>\n\n    ֎ Without GTP-U → No user data flow\n    "
+  },
+  "http2": {
+    "title": "HTTP/2 : Hypertext Transfer Protocol Version 2",
+    "layers": [
+      7,
+      6,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "\n  ֎ Upgraded version of HTTP/1.1<br>\n  ֎ Main signaling protocol b/w NFs in 5GC or Main application protocol used by the Service-Based Interface (SBI).\n  ֎ <b>Layer:</b> Application Layer (Layer 7)<br>\n  ֎ <b>Runs Over:</b> TLS over TCP<br>\n  ֎ <b>Improvement over HTTP/1.1:</b><br>\n            • Faster<br>\n            • Binary framing (not text-based like HTTP/1.1)<br>\n            • Multiplexing (multiple streams on one TCP + TLS connection)<br>\n            • Header compression (HPACK)<br>\n            • Server push<br>\n            • Can server many SBI messages at once<br>\n  \n  ֎ <b>Main Features:</b><br>\n            • Many requests on single TCP+TLS connection<br>\n            • Faster communication<br>\n            • Smaller headers<br>\n            • Stream IDs for parallel messages<br>\n\n  ֎ <b>Used In:</b><br>\n            • Web browsers<br>\n            • APIs<br>\n            • 5G Core SBA (Service-Based Architecture) & SBI (Service-Based Interfaces)<br>\n\n  ֎ <b>In 5G Core:</b><br>\n            • NF ↔ NF communicate using HTTP/2 over TLS over TCP<br>\n            • Runs over TLS 1.3 over TCP<br>\n            • Used between AMF, SMF, PCF, NRF, etc.<br>\n            • Heart of 5G-SBA signaling<br>\n\n  ֎ <b>In PDU Session Establishment:</b><br>\n            • AMF receives UE request<br>\n            • SMF selection via NRF using HTTP/2<br>\n            • AMF talks to SMF via HTTP/2 to create PDU session<br>\n            • SMF talks to PCF for QoS rules & policy control via HTTP/2<br>\n            • PCF responds to SMF via HTTP/2<br>\n            • SMF accepts PDU session info & talk to AMF via HTTP/2<br>\n            • AMF responds to UE via NAS<br>\n            • All core control-plane decisions after AMF use HTTP/2<br>\n\n  ֎ <b>Not Used For:</b><br>\n            • RAN signaling (uses NGAP over SCTP)<br>\n            • Direct user-plane traffic. APPs generally use QUIC(HTTP/3) or TLS over TCP(HTTPS) or Plain HTTP/2 over TCP. <br>\n  "
+  },
+  "rtp": {
+    "title": "RTP : Real-Time Transport Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip",
+      "dep-gtp"
+    ],
+    "content": "\n  ֎ RTP is the protocol that carries actual voice/video media during a call.<br>\n  ֎ RTP travels inside GTP-U tunnel on user plane.<br>\n  ֎ <b>Layer:</b> Application Layer (Layer 7)<br>\n  ֎ <b>Transport:</b> UDP (Port not fixed → negotiated via SIP/SDP)<br>\n\n  ֎ <b>Purpose:</b><br>\n            • Carries actual voice and video media<br>\n            • Used during active calls<br>\n\n  ֎ <b>Used In:</b><br>\n            • VoLTE/VoNR/VoWiFi<br>\n            • IMS calls<br>\n            • Video conferencing<br>\n            • WebRTC<br>\n\n  ֎ <b>Important:</b><br>\n            • SIP → Call setup (handles signaling) <br>\n            • RTP → Actual voice/media<br>\n            • RTCP → Quality feedback (jitter, loss, delay)<br>\n\n  ֎ <b>In VoNR:</b><br>\n            • After SIP signaling completes:<br>\n            • UE ↔ IMS gateway exchange RTP voice packets<br>\n            • UE ↔ gNB ↔ UPF ↔ IMS ↔ RTP Server<br>\n            • RTP packets start flowing<br><br>\n\n  ֎ <b>Encapsulation in 5G:</b><br>\n           (RTP over UDP over IP) → GTP-U → UPF → IMS<br><br>\n                   • SIP INVITES (contain SDP) : SDP specifies CoDec, RTP port, media diection<br>\n                                                        ↓<br>\n                                     • SIP 200 OK : Confirms RTP Parameters <br>\n                                                        ↓<br>\n                              • RTP Media starts : UE sends/receives RTP Packets<br>\n                                                        ↓<br>\n                               • Conversation happens : RTP flows continuously<br>\n                                                        ↓<br>\n                               • BYE, 200 OK : Call disconnect → RTP stops<br><br>\n\n  ֎ <b>QoS:</b><br>\n           • Uses GBR QoS flow<br>\n           • Typically mapped to 5QI 1 or 2<br>\n           • Prioritized by gNB and UPF<br>\n\n  ֎ <b>Quality Indicators:</b><br>\n            • Jitter (Variation in packet arrival time)<br>\n            • Packet loss (Missing sequence number)<br>\n            • Latency (Delay measured using timestamps)<br>\n            • MOS score (VoIP analysis tool that estimates call quality)<br>\n  ֎ RTP needs low latency + Jitter → RTP uses 5QI = 1 or 2 mapped to GBR QoS flow which is prioritised by UPF & gNB.<br>\n  ֎ Without RTP → No audio in call<br>\n  ֎ Works only when IMS PDU session is active (Internet APN doesnot carry RTP)\n  "
+  },
+  "nas": {
+    "title": "NAS : Non-Access Stratum",
+    "layers": [
+      7
+    ],
+    "stack": [
+      "dep-app"
+    ],
+    "content": "\n\n  ֎ Signaling between UE ↔ AMF <br>\n  ֎ <b>Type:</b> 5G Control Plane Signaling<br>\n\n  ֎ <b>Important:</b><br>\n            • NAS messages pass through gNB but gNB does NOT process NAS messages<br>\n            • gNB forwards NAS messages to AMF inside NGAP<br>\n            • NAS => Heart of UE ↔ Core communication <br>\n\n  ֎ <b>Used For:</b><br>\n            • Registration<br>\n            • Authentication<br>\n            • Security setup<br>\n            • PDU Session Establishment<br>\n            • Mobility management<br>\n            • Deregistration<br>\n\n  ֎ <b>Message Flow:</b><br>\n              UE ↔ gNB ↔ AMF<br>\n            • Outer Layer : NGAP<br>\n            • Inner Layer : NAS message<br>\n\n  ֎ <b>Common NAS Messages:</b><br>\n            • Registration Request / Response<br>\n            • Authentication Request / Response<br>\n            • Security Mode Command / Complete<br>\n            • PDU Session Establishment Request / Accept<br>\n            • Deregistration Request<br>\n\n  ֎ <b>During PDU Session Establishment:</b><br><br>\n                    • UE sends PDU Session Establishment Request over NAS to AMF<br>\n                      Includes:<br>\n                                      - DNN (APN)<br>\n                                      - S-NSSAI (Slice)<br>\n                                      - PDU Session Type (IPv4/IPv6)<br>\n                                      - SSC Mode<br>\n                                      - Requested QoS<br>\n                                                      ↓<br>\n                    • AMF forwards request to SMF through HTTP/2<br>\n                                                      ↓<br>\n                    • SMF creates session and send details to AMF<br>\n                                                      ↓<br>\n                    • AMF sends PDU Session Accept to UE over NAS<br>\n                      Includes:<br>\n                                      - Allocated UE IP<br>\n                                      - S-NSSAI (Slice)<br>\n                                      - QoS rules<br>\n                                      - Allowed session type<br>\n                                      - Security settings<br>\n                                                      ↓<br>\n                    • After this → GTP-U tunnel starts<br><br>\n\n  ֎ <b>Security:</b><br>\n            • Integrity protected<br>\n            • Encrypted (after Security Mode Complete)<br>\n            • gNB cannot read or modify NAS contents<br>\n\n  ֎ <b>Key Point:</b><br>\n            • All user-plane traffic starts only after NAS establishes the session<br>\n            • RRC  : B/W UE & gNB : Radio Control<br>\n            • NAS  : B/W UE & AMF : Registration, PDU Session, Security<br>\n            • NGAP : B/W gNB & AMF :Carries NAS messages + UE content management<br><br>\n\n            <----RRC (Radio Signaling)----><br>\n            <b>UE <----------------------> gNB <---------------------->AMF</b><br>\n            <------------------NAS (Core Signaling)------------------->\n  "
+  },
+  "ngap": {
+    "title": "NGAP : Next Generation Application Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-ip"
+    ],
+    "content": "\n  ֎ <b>NGAP is the signaling protocol between gNB & AMF</b> <br>\n  ֎ NGAP = Transport layer for NAS + gNB specific procedures<br>\n  ֎ <b>Type:</b> Control Plane Signaling Protocol<br>\n  ֎ <b>Between:</b> gNB ↔ AMF (N2 Interface)<br>\n  ֎ <b>Transport:</b> SCTP (Port 38412)<br>\n\n  ֎ <b>Purpose:</b><br>\n            • Signaling between gNB and AMF<br>\n            • Carries all NAS messages between gNB and AMF<br>\n            • Manages UE context in RAN<br>\n            • Supports handover signaling<br>\n            • Supports PDU session resource setup (Carries PDU session control info)<br><br>\n                          UE ----------> gNB ----------> AMF<br>\n                                 RRC                      NGAP<br><br>\n  ֎ <b>Important:</b><br>\n            • NAS messages are encapsulated inside NGAP<br>\n            • gNB cannot read NAS content<br>\n            • NGAP acts as transport layer for NAS<br>\n            • NGAP is the \"Middle Layer\" carrying NAS<br>\n            • Critical for creating GTP-U tunnels for user-plane<br>\n\n  ֎ <b>Protocol Stack:</b><br>\n            • UE ↔ gNB → RRC<br>\n            • gNB ↔ AMF → NGAP<br>\n            • NAS carried inside NGAP<br>\n\n  ֎ <b>Used During:</b><br>\n            • Registration procedures<br>\n            • PDU session establishment<br>\n            • UE context management<br>\n            • Handover procedures<br>\n\n  ֎ <b>Role of NGAP in PDU Session Establishment:</b><br>\n                      • UE sends NAS : PDU Session Establishment Request<br>\n                                                        ↓<br>\n                      • gNB sends Uplink NAS Transport to AMF via NGAP<br>\n                                                        ↓<br>\n                      • AMF communicates with SMF over HTTP/2 and SMF creates PDU session<br>\n                                                        ↓<br>\n                      • SMF → AMF → gNB : Provides UPF tunnel information<br>\n                                                        ↓<br>\n                      • AMF sends PDU Session Resource Setup Request to gNB<br>\n                            Includes:<br>\n                            - UL/DL TEID<br>\n                            - UPF tunnel endpoint<br>\n                            - QoS rules<br>\n                            - QFI values<br>\n                                                        ↓<br>\n                      • gNB confirms GTP-U tunnel creation (PDU Session Resource Setup Response)<br>\n                                                        ↓<br>\n                      • PDU Session Resource Setup Response sent to AMF<br>\n                                                        ↓<br>\n                      • AMF sends NAS back to UE (PDU Session Establishment Accept)<br>\n                                                        ↓<br>\n                      • GTP-U tunnel becomes active and user-plane traffic starts<br>\n   \n\n  "
+  },
+  "sctp": {
+    "title": "SCTP : Stream Control Transmission Protocol",
+    "layers": [
+      4,
+      3
+    ],
+    "stack": [
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "֎ SCTP is a transport layer protocol like TCP/UDP but designed for telecom signaling<br>\n    ֎ <b>Layer:</b> Transport Layer (Layer 4)<br>\n    ֎ <b>Used For:</b> Telecom signaling<br>\n\n    ֎ <b>In 5G:</b><br>\n              • SCTP is used between gNB ↔ AMF<br>\n              • SCTP carries NGAP signaling (Registration signaling)<br>\n              • No user-plane traffic, no SBI traffic, no IMS traffic uses SCTP<br>\n\n    ֎ <b>Protocol Stack:</b><br>\n                                  <u>                                                                          </u>                                                                      \n                                  |        <u>                                                         </u>        |<br>\n                                  |       |    <u>                                             </u>       |        |<br>\n                                  |       |    |      <u>                                 </u>     |       |        |<br>\n          gNB     ==>     |       |    |      |<u>           NAS              </u>|    |       |        |            ==>     AMF<br>\n                                  |       |    |<u>                 NGAP                     </u>|      |        |<br>\n                                  |      |<u>                      SCTP                           </u>|        |<br>\n                                  |<u>                               IP                                       </u>|<br><br>\n\n    ֎ <b>Transport:</b><br>\n              • SCTP over IP<br>\n              • Port: 38412 (NGAP)<br>\n\n    ֎ <b>Main Features:</b><br>\n              • Multi-homing (multiple IPs/interfaces for high reliability)<br>\n              • Multi-streaming (parallel logical streams, no head-of-line blocking)<br>\n              • Message-oriented delivery (Good for signaling messages/ NGAP procedures)<br>\n              • Better control of association<br>\n              • Path failure detection<br>\n\n    ֎ <b>Advantages over TCP:</b><br>\n              • Better for signaling traffic<br>\n              • Multiple streams avoid blocking<br>\n              • Supports redundant network paths<br>\n    ֎ Multi-homing feature can keep the NGAP session alive even if one interface fails<br>\n    ֎ Multi-streaming feature allows different NGAP procedures run in separate streams => no blocking<br>\n    ֎ Heartbeats are exchanged to check path health<br>\n    ֎ SCTP guarantees that NGAP messages must never be lost<br>\n    ֎ <b>Used During:</b><br>\n              • UE registration<br>\n              • NAS transport messages<br>\n              • PDU session resource setup<br>\n              • Handover signaling<br>\n\n    ֎ <b>Example Message Flow:</b><br>\n              UE ----(RRC)----> gNB ----(NAS inside NGAP over SCTP)----> AMF<br>\n\n    ֎ <b>If SCTP Fails:</b><br>\n              • gNB loses connection with AMF<br>\n              • ALL UEs on that gNB  deregisters<br>\n              • No new registration<br>\n              • No PDU session creation<br>\n              • No NAS transport<br>\n\n    ֎ SCTP is mandatory for 5G RAN ↔ 5G Core control-plane communication"
+  },
+  "rrc": {
+    "title": "RRC : Radio Resource Control",
+    "layers": [
+      5
+    ],
+    "stack": [],
+    "content": "֎ Signaling protocol between <b>UE ↔ gNB</b><br>\n    ֎ <b>Layer:</b> Access Stratum (Radio Signaling) <br>\n    ֎ <b>Purpose:</b><br>\n              • Establish radio connection<br>\n              • Manage radio resources<br>\n              • Security at radio level\n              • Handle mobility (handover)<br>\n              • Activate radio security<br>\n              • Carry NAS messages between UE ↔ gNB<br>\n\n    ֎ <b>Scope:</b><br>\n              • Exists only between <b>UE and gNB</b><br>\n              • Anything that go beyond gNB is <b>NOT RRC</b>, it becomes <b>NGAP</b><br><br>\n\n               <b>UE</b> -----RRC carrying NAS-----><b>gNB</b>-----NGAP carrying NAS-----><b>AMF</b><br><br>\n\n    ֎ <b>Key Functions:</b><br>\n              • RRC Connection Setup/Setup complete (UE ↔ gNB)<br>\n              • RRC Configuration (PDU session establishment, Adding DRBs, QoS, Handover)<br>\n              • RRC Security Mode Command (gNB activates AS security)<br>\n              • RRC UL info transfer<br>\n              • RRC DL info transfer<br>\n              • RRC Measurement Reporting<br>\n              • Handover Control<br>\n              • RRC Release (UE goes back to Idle : Radio resource release)<br>\n\n    ֎ <b>RRC Message Flow (Initial Access):</b><br>\n               1. UE → gNB : RRC Connection Request<br>\n               2. gNB → UE : RRC Connection Setup<br>\n               3. UE → gNB : RRC Connection Setup Complete<br>\n               This final message usually carries the <b>NAS Registration Request</b>.<br>\n               4. gNB → CORE : Forwards NAS inside NGAP<br>\n\n    ֎ <b>Relationship with NAS:</b><br>\n              UE → RRC → gNB → NGAP → AMF<br>\n              NAS messages are transported inside RRC initially.<br>\n\n    ֎ <b>Role in 5G Session Setup:</b><br>\n              • Moves UE from <b>Idle → Connected</b><br>\n              • Setting security keys for radio<br>\n              • Passing NAS messages to AMF<br>\n              • Allocates radio resources for PDU session<br>\n              • Creates <b>DRB (Data Radio Bearer)</b> for user traffic<br>\n              • Enables GTP-U user plane later<br>\n\n    ֎ <b>Important:</b><br>\n            Without RRC → No Registration → No PDU Session → No Internet<br>\n            RRC is the First protocol a UE speaks after it powers ON<br>\n            RRC is the transport layer for the first NAS message<br>\n            RRC sits at the bottom of signaling, closest to the radio<br>\n            Everything starts with RRc. Without RRC nothing can begin in 5G<br>\n            RRC packets can be captured only be decoded if you capture the packets in<br>\n              • UE modem<br>\n              • on gNB interface<br>\n            Normal PCAPs from UPF won't show RRC<br>"
+  },
+  "bgp": {
+    "title": "BGP : Border Gateway Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer:</b> Application Layer<br>\n\n    ֎ <b>Purpose:</b><br>\n              • BGP is the routing protocol that decides how data reaches other networks (Internet)<br>\n              • Exchanges routing information between large networks (Autonomous Systems)<br>\n              • It tells the UPF how to reach the internet<br>\n              • BGP is like Google maps for the internet(the world) & cars are packets<br>\n\n    ֎ <b>Where it is used:</b><br>\n              • ISP backbone networks<br>\n              • Data center routers<br>\n              • Internet exchange points<br>\n              • Data Network (DN) side of 5G<br>\n\n    ֎ <b>In 5G Architecture:</b><br><br>\n                          UE → gNB → AMF → UPF → DN Router → Internet<br>\n\n    The DN router uses <b>BGP</b> to reach external services like Google, Netflix, etc.<br>\n\n    ֎ <b>Important:</b><br>\n              • BGP is <b>not part of 5G core signaling</b> (like NAS / NGAP / PFCP...).<br>\n              • It works in the <b>operator IP backbone network</b>.<br>\n              • Critical after user-plane begins<br>\n\n    ֎ <b>If BGP fails:</b><br>\n              • No internet routes available<br>\n              • UPF cannot reach external networks<br>\n              • UE shows <b>\"No Internet\"</b> even if PDU session exists<br>\n\n    ֎ <b>Transport:</b><br>\n    Runs over <b>TCP port 179</b><br>\n\n    ֎ <b>BGP exchanges:</b><br>\n              • AS numbers<br>\n              • Network (Routing) prefixes<br>\n              • Next-hop information<br>\n              • Best path routes<br>\n\n    ֎ <b>Path Selection Factors:</b><br>\n              • AS Path<br>\n              • Local Preference<br>\n              • Next-hop reachability<br>\n              • Route origin<br>\n    ֎ BGP is not a part of PDU session signaling<br>\n    "
+  },
+  "diameter": {
+    "title": "DIAMETER",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer:</b> Application Layer<br>\n    ֎ <b>Purpose:</b><br>\n              • AAA protocol: Authentication, Authorization, Accounting<br>\n              • Provides subscriber authentication and policy information<br>\n\n    ֎ <b>Used In:</b><br>\n              • 4G EPC core<br>\n              • IMS network<br>\n              • VoLTE / VoNR voice services<br>\n\n    ֎ <b>Important:</b><br>\n              • Diameter replaced the older <b>RADIUS</b> protocol.<br>\n              • It is <b>not used inside 5G SBA core</b> (5GC uses HTTP/2 + TLS for SBA functions).<br>\n\n    ֎ <b>Where it works:</b><br>\n            IMS Core Components:<br>\n              • P-CSCF<br>\n              • I-CSCF<br>\n              • S-CSCF<br>\n              • HSS / UDM<br>\n            These nodes use Diameter to exchange subscriber information.<br>\n              • 5G Core NFs → use HTTP/2 + TLS<br>\n              • IMS Core functions → use SIP + DIAMETER + RTP<br>\n              • Data Session → use GTP-U + PFCF by PDU session<br>\n              • Policy/Charging → partially use DIAMETER when PCRF is used in EPC/IMS<br>\n    ֎ <b>Transport:</b><br>\n    Runs over <b>TCP or SCTP</b><br>\n    Port <b>3868</b><br>\n\n    ֎ <b>Diameter Commands:</b><br>\n              • CER / CEA → Carrier Exchange<br>\n              • DWR / DWA → Device Watchdog<br>\n              • AAR / AAA → Authorization Request/Answer<br>\n              • MAR / MAA → Multimedia Authentication Request<br>\n              • SAR / SAA → Server Assignment<br>\n              • LIR / LIA → Location Information<br>\n              • STR / STA → Session Termination<br>\n              • UAR / UAA → User Authorisation<br>\n\n    ֎ <b>Information Carried:</b><br>\n              • IMSI / subscriber identity<br>\n              • Public user identity (SIP URI)<br>\n              • Authentication vectors<br>\n              • QoS policy rules<br>\n              • Charging information<br>   \n\n    ֎ <b>Role in Voice Services:</b><br>\n           UE ---for IMS PDU Session---> SIP Register ------> DIAMETER to HSS/PCRF ------> Voice allowed<br>\n                     IMS nodes use <b>Diameter</b> to retrieve subscriber profile and policy rules.<br>\n\n    ֎ <b>If Diameter fails:</b><br>\n              • Subscriber authentication fails<br>\n              • IMS services fail<br>\n              • No VoLTE / VoNR voice calls<br>\n    ֎ DIAMETER is Not a part of PDU session establishment<br>\n    ֎ It directly affects : Voice QoS, RTP QoS, Charging used by IMS, IMS registration inside a  dedicated PDU session"
+  },
+  "ospf": {
+    "title": "OSPF : Open Shortest Path First",
+    "layers": [
+      3
+    ],
+    "stack": [
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer:</b> Network Layer<br>\n\n    ֎ <b>Purpose:</b><br>\n              • OSPF is an internal routing protocol used inside operator's IP networks<br>\n              • OSPF handles internal routing; BGP handles inter-domain routing.<br>\n              • Helps routers find the shortest path for packets<br>\n\n    ֎ <b>Type:</b><br>\n    Interior Gateway Protocol (IGP)<br>\n\n    ֎ <b>Where it is used:</b><br>\n              • Telecom backbone networks<br>\n              • ISP internal networks<br>\n              • Data centers<br>\n              • Transport network behind UPF/AMF/SMF<br>\n    ֎ OSPF runs only between routers to -<br>\n              • Learn routes<br>\n              • Maintain dynamic topology<br>\n              • Build the shortest path<br>\n              • Auto recover from link failure<br>\n\n    ֎ <b>Important:</b><br>\n              • OSPF is <b>not used in 5G core signaling</b>.<br>\n              • 5G core signaling uses :<br>\n                         - HTTP/2 + TLS + TCP, NAS, NGAP, PFCP, etc.<br>\n              • Transport n/w  [The IP n/w connecting all nodes] uses :<br>\n                         - OSPF, IS-IS, BGP by routers that connect gNB ↔ UPF ↔ DN<br>\n\n    ֎ <b>Transport:</b><br>\n              • Runs directly over IP<br>\n              • IP Protocol Number <b>89</b><br>\n                    (Not TCP or UDP)<br>\n\n    ֎ <b>What OSPF does:</b><br>\n              • Discovers neighboring routers<br>\n              • Exchanges link-state information<br>\n              • Maintains network topology map<br>\n              • Calculates shortest path routes<br>\n              • Automatically adapts to link failures<br>\n\n    ֎ <b>Algorithm Used:</b><br>\n              • Dijkstra's Shortest Path Algorithm<br>\n\n    ֎ <b>Routing Information Shared:</b><br>\n              • Link cost<br>\n              • Neighbor information<br>\n              • Network topology<br>\n\n    ֎ <b>Relationship with BGP:</b><br>\n              • OSPF → used inside operator network<br>\n              • BGP → used between networks on the Internet<br>"
+  },
+  "arp": {
+    "title": "ARP : Address Resolution Protocol",
+    "layers": [
+      2,
+      3
+    ],
+    "stack": [
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer:</b> Between Layer 2 and Layer 3<br>\n            ֎ <b>Purpose:</b><br>\n                      • ARP maps an <b>IP address to MAC address</b> inside a LAN in IPv4. IPv6 uses NDP instead of ARP.<br>\n                      • Required before sending Ethernet frames<br>\n                      • Without ARP → no packet can leave the local interface or UPF cannot forward any GTP-U traffic<br>\n\n            ֎ <b>Where it is used:</b><br>\n                      • gNB ↔ Router<br>\n                      • UPF ↔ DN Router<br>\n                      • AMF / SMF ↔ Transport routers<br>\n                      • Any Ethernet-based link in the 5G transport network<br>\n\n            ֎ <b>Important:</b><br>\n                      • ARP is <b>not a 5G signaling protocol</b>.<br>\n                      • It works below protocols like NAS, NGAP, PFCP, GTP-U.<br>\n                      • ARP is not involved in PDU session signaling<br>\n\n            ֎ <b>Example Flow:</b><br><br>\n                            UE → gNB → UPF → DN Router → Internet<br><br>\n\n                                 • UPF wants to send a packet to DN Router.<br>\n                                 • UPF knows the router's IP but not its MAC.<br>\n                                 • UPF does ARP Request:<br>\n                                           \"Who has 192.168.1.1 ? Tell 192.168.1.10\"<br>\n                                 • DN router ARP Reply:<br>\n                                           \"192.168.1.1 is at 00:1A:2B:3C:4D:5E\"<br>\n                                 • UPF now sends the packet using Ethernet.<br>\n\n            ֎ <b>Important Behavior:</b><br>\n                      • ARP Request → Broadcast<br>\n                      • ARP Reply → Unicast<br>\n\n            ֎ <b>If ARP fails:</b><br>\n                      • Router MAC cannot be resolved<br>\n                      • Packets cannot leave the local interface<br>\n                      • UE may show <b>\"No Internet\"</b> even if PDU session exists<br>\n\n            ֎ <b>Relationship with DNS:</b><br>\n                      • DNS → Domain name → IP address, Global, Application layer, Uses servers<br>\n                      • ARP → IP address → MAC address, LAN only, Layer 2/3, Mandatory for ethernet, uses broadcast<br>"
+  },
+  "dhcp": {
+    "title": "DHCP : Dynamic Host Configuration Protocol",
+    "layers": [
+      7,
+      4,
+      3
+    ],
+    "stack": [
+      "dep-app",
+      "dep-transport",
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer :</b> Application Layer<br>\n            ֎ <b>Purpose :</b><br>\n                      • Automatically assigns IP configuration to devices<br>\n                      • Without DHCP, devices need manual IP configuration<br>\n            ֎ Provides :<br>\n                      • IP address<br>\n                      • Subnet mask / prefix<br>\n                      • Default gateway<br>\n                      • DNS server<br>\n\n            ֎ <b>Transport :</b><br>\n                   Runs over <b>UDP</b><br>\n                      • Server port <b>67</b><br>\n                      • Client port <b>68</b><br>\n\n            ֎ <b>DHCP Message Flow (DORA) :</b><br>\n                      1. Discover → Client asks for IP<br>\n                      2. Offer → Server offers an IP<br>\n                      3. Request → Client requests that IP<br>\n                      4. Acknowledge → Server confirms assignment<br>\n\n            ֎ <b>Important :</b><br>\n                      • In <b>5G networks</b>, the UE usually does <b>NOT use DHCP</b> to get its IP.<br>\n                      • UE IP address is allocated by <b>SMF</b> during PDU session establishment.<br>\n                      • UE IP address is assigned by SMF and delivered via NAS signaling.<br>\n                      • Delivered over : RRC → NGAP → NAS.<br>\n\n            ֎ <b>Where DHCP is used in 5G :</b><br>\n                      • Network infrastructure devices not UE<br>\n                      • gNB nodes<br>\n                      • Routers / switches<br>\n                      • UPF / AMF / SMF management networks<br>\n                      • Data center VMs or containers<br>\n\n            ֎ <b>If DHCP fails :</b><br>\n                      • Network nodes may not get IP addresses<br>\n                                           ↓<br>\n                      • Core nodes become unreachable<br>\n                                           ↓<br>\n                      • PFCP or GTP-U paths may fail<br>\n                                           ↓<br>\n                      • Therefore no internet<br>\n\n            ֎ <b>After DHCP assigns IP :</b><br>\n                      • Devices typically use <b>ARP</b> to discover the MAC address of the gateway."
+  },
+  "ipsec": {
+    "title": "IPsec : Internet Protocol Security ",
+    "layers": [
+      3
+    ],
+    "stack": [
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer :</b> Network Layer Security<br>\n            ֎ <b>Purpose :</b><br>\n                      • Secures IP traffic by encryption and authentication<br>\n                      • Provides VPN-like protection at the IP layer<br>\n            \n            ֎ <b>Protects data Against :</b><br>\n                      • Eavesdropping<br>\n                      • Packet tampering<br>\n                      • IP spoofing<br>\n\n            ֎ <b>Important :</b><br>\n                      • IPsec is <b>not a part of normal PDU session signaling</b>.<br>\n                      • But IPsec is very important to secure n/w interfaces & transport networks between nodes.<br>\n\n            ֎ <b>In 5G Networks :</b><br>\n                      • Commonly used between:<br>\n                              - gNB ↔ 5G Core over untrusted networks<br>\n                                    IPsec tunnel protects NGAP + GTP-U traffic<br>\n                              - N2/N3 interface protection<br>\n                                    N2 : gNB <--NGAP over SCTP--> AMF<br>\n                                    N3 : gNB <-------GTP-U------> UPF<br>\n            ֎ <b>3GPP Security Options :</b><br>\n                      • IPsec tunnels<br>\n                      • Private MPLS networks<br>\n                      • Physically secure transport links<br>\n            If the network is not trusted, <b>IPsec is mandatory</b>.<br>\n                      • Ipsec protects → NGAP(NAS), GTP-U<br>\n                      • HTTP/2 + TLS protects → SBI<br>\n                      • AS security protects → RRC/NAS<br>\n\n            ֎ <b>IPsec Modes :</b><br>\n                      • <b>Tunnel Mode</b> → Entire IP packet encrypted (new outer IP header added)<br>\n                      • <b>Transport Mode</b> → Only payload encrypted<br>\n\n            ֎ <b>IPsec Protocols :</b><br>\n                      • <b>ESP (Encapsulating Security Payload)</b><br>\n                               Encryption + Integrity (commonly used in 5G)<br>\n\n                      • <b>AH (Authentication Header)</b><br>\n                               Integrity only (rarely used)<br>\n\n            ֎ <b>IKE (Internet Key Exchange) :</b><br>\n                    • Used to negotiate:<br>\n                        - Encryption algorithms<br>\n                        - Security parameters<br>\n                        - Session keys<br>\n                    between peers before IPsec works.<br>\n            ֎ <b>Important Note:</b><br>\n                     • IPsec does not change protocol logic.<br>\n                     • It only secures the transport path.<br>\n                     • Without keys, packet captures cannot decode NGAP or GTP-U traffic inside the IPsec tunnel."
+  },
+  "mpls": {
+    "title": "MPLS : Multi-Protocol Label Switching",
+    "layers": [
+      2,
+      3
+    ],
+    "stack": [
+      "dep-ip"
+    ],
+    "content": "֎ <b>Layer :</b> Layer 2.5 (between Layer 2 and Layer 3)<br>\n            ֎ <b>Purpose :</b><br>\n                     • Fast packet forwarding technique used in operator backbone networks<br>\n                     • MPLS uses <b>labels</b> instead of traditional IP routing lookups to carry traffic<br>\n\n            ֎ <b>How MPLS works :</b><br>\n                     1. First router attaches an MPLS label to the packet<br>\n                     2. Core routers forward packets using the label<br>\n                     3. Last router removes the label before delivery<br>\n\n            Routers in the core do <b>not inspect IP headers</b>.<br>\n\n            ֎ <b>Where MPLS is used :</b><br>\n                     • Telecom backbone networks<br>\n                     • ISP core networks<br>\n                     • Data center transport networks<br>\n\n            ֎ Example path :<br>\n                               UE → gNB → MPLS backbone → AMF / UPF → DN Router → Internet<br>\n\n            ֎ <b>Important :</b><br>\n                     • MPLS is part of the <b>transport/backbone network</b>, not 5G Core signaling.<br>\n                     • MPLS is also used between<br>\n                               - gNB ↔ AMF<br>\n                               - gNB ↔ UPF<br>\n                               - AMF ↔ SMF<br>\n                               - SMF ↔ UPF<br>\n                      It simply carries protocols such as:<br>\n                               - NGAP<br>\n                               - PFCP<br>\n                               - GTP-U<br>\n                               - HTTP/2<br>\n                               - SIP / RTP<br>\n                      But MPLS does not understand these protocols.<br>\n\n            ֎ <b>MPLS Advantages :</b><br>\n                     • Very fast packet forwarding (Label swap operation without full IP lookup.)<br>\n                     • Traffic engineering<br>\n                     • QoS guarantee<br>\n                     • Network isolation (VPNs)<br>\n                     • Predictable latency<br>\n            \n            ֎ MPLS = Pre-defined fast paths through the operator's backbone<br>\n            ֎ Without MPLS : Every router checks IP destination & Runs routing logic<br>\n            ֎ With MPLS :<br>\n                      - Edge router adds label<br>\n                      - Core routers swap labels<br>\n                      - Final router removes label<br> \n             Routers donot lookup at IP headers inbetween<br>    \n\n            ֎ <b>MPLS Label Contains :</b><br>\n                     • Label value<br>\n                     • EXP bits (QoS)<br>\n                     • Bottom-of-stack flag<br>\n                     • TTL<br>\n            ֎ MPLS is transport only, It is invisible to 5G logic<br>\n\n            ֎ <b>MPLS vs Normal IP Routing vs IPsec :</b><br>\n                     • MPLS → Fast forwarding, Private operator backbone, No encryption, Traffic engineering, QoS friendly<br>\n                     • Normal routing → Every router checks destination IP<br>\n                     • IPsec → Encryption & security, untrusted n/ws, strong encryption, confidentiality, security focused<br><br>\n                              - MPLS → in Private networks<br>\n                              - IPsec → in Public networks<br>\n\n\n            ֎ MPLS makes 5G transport networks <b>fast, scalable, and low-latency</b><br>\n            ֎ MPLS Slicing :<br>\n                     • Mapping slices → MPLS labels<br>\n                     • Seperate LSPs for URLLS, eMBB, mMTC<br>\n                     • Slice isolation at transport layer<br>\n            "
+  }
+}

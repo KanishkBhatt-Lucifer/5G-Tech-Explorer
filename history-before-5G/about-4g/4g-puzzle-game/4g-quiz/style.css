@@ -1,0 +1,311 @@
+/* ============================================================
+   4G LTE Quiz — Stylesheet
+   BUG FIXES:
+   1. <style> block was after </html> — moved here
+   2. .QUIZ-5G-btn i had margin-left:1270px — icon invisible, fixed with gap
+   3. result buttons had no wrapper spacing — .result-buttons now uses flex+gap
+   4. .difficulty-btn had no hover/border style — added to match category-btn
+   ============================================================ */
+
+/* ── RESET ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #0f1b3d, #050914);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ── CONTAINER ── */
+.quiz-container {
+    width: 95%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 191, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+/* ── HEADER ── */
+.quiz-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.quiz-header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #00bfff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quiz-header p {
+    color: #a6e3ff;
+    margin-top: 10px;
+}
+
+/* ── SCREENS ── */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ── DIFFICULTY BUTTONS ── */
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.difficulty-btn:hover  { background: rgba(0, 191, 255, 0.2); }
+.difficulty-btn.selected { background: #00bfff; color: #000; }
+
+/* ── CATEGORY BUTTONS ── */
+.category-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.category-btn {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.category-btn:hover    { background: rgba(0, 191, 255, 0.2); }
+.category-btn.selected { background: #00bfff; color: #000; font-weight: 600; }
+
+/* Start button */
+#start-btn {
+    display: block;
+    margin: 25px auto 0;
+    padding: 13px 35px;
+    font-size: 1rem;
+}
+
+/* ── SCORE BAR ── */
+.score-bar-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#score-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00ffff, #1e90ff);
+    transition: width 0.5s ease;
+    border-radius: 5px;
+}
+
+/* ── QUIZ INFO ── */
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #a6e3ff;
+}
+
+/* ── QUESTION ── */
+.question-box { margin-bottom: 20px; }
+.question-box h2 { font-size: 1.4rem; line-height: 1.5; }
+
+/* ── OPTIONS ── */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.option-btn {
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.option-btn:hover {
+    background: rgba(0, 191, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+}
+
+.option-btn.correct { background-color: #1b5e20 !important; border-color: #00ff88 !important; }
+.option-btn.wrong   { background-color: #7f1d1d !important; border-color: #ff4d4d !important; }
+
+/* ── EXPLANATION BOX ── */
+.explanation-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(0, 191, 255, 0.1);
+    border-left: 4px solid #00bfff;
+    border-radius: 6px;
+    display: none;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e6f7ff;
+}
+
+/* ── NAVIGATION ── */
+.navigation-buttons { text-align: right; margin-top: 10px; }
+
+/* ── ALL BUTTONS BASE ── */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 191, 255, 0.4);
+}
+
+/* ── RESULT SCREEN ── */
+#result-screen h2 { text-align: center; margin-bottom: 15px; }
+
+#final-score {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+#result-message {
+    text-align: center;
+    color: #00ffff;
+    margin-bottom: 20px;
+}
+
+/* BUG FIX: result buttons had no flex wrapper — sat flush.
+   Now spaced properly. */
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+/* ── CASE STUDY LINK ── */
+#message {
+    text-align: center;
+    font-size: 1rem;
+    color: #a6e3ff;
+    margin-top: 10px;
+    line-height: 2;
+}
+
+/* BUG FIX: <style> block was placed AFTER </html> — invalid HTML.
+   Also .QUIZ-5G-btn i had margin-left:1270px pushing icon off-screen.
+   Fixed: moved to this file, icon uses gap instead. */
+.QUIZ-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
+    margin-top: 10px;
+}
+
+.QUIZ-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 35, 126, 0.5);
+    background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
+}
+
+/* ── ANALYTICS SCREEN ── */
+#analytics-screen h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.analytics-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0 20px;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    line-height: 1.8;
+}
+
+.analytics-box h3 {
+    color: #00ffff;
+    margin: 15px 0 6px;
+}
+
+.analytics-box p {
+    color: #a6e3ff;
+    font-size: 0.95rem;
+}
+
+#back-home-btn {
+    display: block;
+    margin: 0 auto;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #00bfff; border-radius: 5px; }
+::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    .quiz-container { padding: 20px; }
+    .quiz-header h1 { font-size: 1.8rem; }
+    .question-box h2 { font-size: 1.1rem; }
+    .difficulty-buttons { gap: 10px; }
+    .category-buttons { grid-template-columns: 1fr 1fr; }
+}

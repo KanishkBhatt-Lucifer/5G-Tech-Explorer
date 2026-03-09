@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTE Architecture Puzzle</title>
+    <link rel="stylesheet" href="puzzle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <h1>4G | LTE ARCHITECTURE PUZZLE</h1>
+    <p class="instruction">Drag each component to its correct position in the architecture</p>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar-wrap">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="progress-label">0 / 8 placed correctly</div>
+
+    <!-- ARCHITECTURE DIAGRAM -->
+    <div class="arch-wrapper">
+
+        <!-- Group outlines -->
+        <div id="eutran" class="group">
+            <div class="group-title">E-UTRAN</div>
+        </div>
+        <div id="epc" class="group">
+            <div class="group-title">Enhanced Packet Core (EPC)</div>
+        </div>
+
+        <!-- Drop zones (data-answer + data-slot set here, populated by JS) -->
+        <div id="ue"   class="drop-zone" data-answer="LTE UE" data-slot="0"></div>
+        <div id="enb1" class="drop-zone" data-answer="eNodeB" data-slot="1"></div>
+        <div id="enb2" class="drop-zone" data-answer="eNodeB" data-slot="2"></div>
+        <div id="mme"  class="drop-zone" data-answer="MME"    data-slot="3"></div>
+        <div id="hss"  class="drop-zone" data-answer="HSS"    data-slot="4"></div>
+        <div id="pcrf" class="drop-zone" data-answer="PCRF"   data-slot="5"></div>
+        <div id="sgw"  class="drop-zone" data-answer="S-GW"   data-slot="6"></div>
+        <div id="pgw"  class="drop-zone" data-answer="P-GW"   data-slot="7"></div>
+
+        <!-- Static elements -->
+        <div id="cloud">IP Networks<br>(IMS, Internet,<br>Apps, Services)</div>
+        <div class="packet" id="packet"></div>
+
+        <!-- Interface labels + arrows injected by puzzle.js from JSON -->
+
+    </div>
+
+    <!-- DRAG TRAY — populated by puzzle.js -->
+    <div class="drag-container" id="dragContainer"></div>
+
+    <!-- RESET BUTTON -->
+    <div class="btn-row">
+        <button onclick="resetGame()">
+            <i class="fas fa-redo"></i> Reset Game
+        </button>
+    </div>
+
+    <!-- COMPLETION MESSAGE -->
+    <div id="message">
+        <div class="congrats">🎉 LTE Architecture Mastered!</div>
+        <p>You correctly placed all 8 components. Ready for the next challenge?</p>
+        <a href="4g-quiz/index.html" class="QUIZ-btn">
+            <i class="fas fa-question-circle"></i> Take the 4G Quiz
+        </a>
+    </div>
+
+    <script src="puzzle.js"></script>
+</body>
+</html>

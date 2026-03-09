@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G NR Knowledge Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="quiz-container">
+
+    <header class="quiz-header">
+        <h1>5G NR Knowledge Quiz</h1>
+        <p>Test your understanding of 5G NR &amp; Core</p>
+    </header>
+
+    <!-- ── START SCREEN ── -->
+    <section id="start-screen" class="screen active">
+
+        <h2>Select Difficulty</h2>
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn selected" data-level="easy">Easy</button>
+            <button class="difficulty-btn" data-level="medium">Medium</button>
+            <button class="difficulty-btn" data-level="hard">Hard</button>
+        </div>
+
+        <h2>Select Category</h2>
+        <div class="category-buttons">
+            <button class="category-btn" data-category="nr">NR Air Interface</button>
+            <button class="category-btn" data-category="stack">Protocol Stack</button>
+            <button class="category-btn" data-category="core">5G Core</button>
+            <button class="category-btn" data-category="slicing">Slicing &amp; QoS</button>
+            <button class="category-btn" data-category="mobility">Mobility</button>
+            <button class="category-btn" data-category="vonr">IMS &amp; VoNR</button>
+            <button class="category-btn" data-category="security">Security</button>
+        </div>
+
+        <button id="start-btn">Start Quiz</button>
+    </section>
+
+    <!-- ── QUIZ SCREEN ── -->
+    <section id="quiz-screen" class="screen">
+
+        <div class="score-bar-container">
+            <div id="score-bar"></div>
+        </div>
+
+        <div class="quiz-info">
+            <span id="question-number"></span>
+            <span id="score-display"></span>
+        </div>
+
+        <div class="question-box">
+            <h2 id="question-text"></h2>
+        </div>
+
+        <div class="options-container">
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+        </div>
+
+        <div id="explanation-box" class="explanation-box"></div>
+
+        <div class="navigation-buttons">
+            <button id="next-btn">Next</button>
+        </div>
+    </section>
+
+    <!-- ── RESULT SCREEN ── -->
+    <section id="result-screen" class="screen">
+        <h2>Quiz Completed!</h2>
+        <p id="final-score"></p>
+        <p id="result-message"></p>
+
+        <div class="result-buttons">
+            <button id="analytics-btn">
+                <i class="fas fa-chart-bar"></i> View Analytics
+            </button>
+            <button id="restart-btn">
+                <i class="fas fa-redo"></i> Restart
+            </button>
+        </div>
+
+        <div id="message">
+            🎉 5G NR done. Ready for real scenarios?<br>
+            <a href="5g-case-quiz/index.html" class="QUIZ-btn">
+                <i class="fas fa-briefcase"></i> 5G Case Study Quiz
+            </a>
+            <a href="../index.html" class="QUIZ-btn" style="margin-left: 10px;">
+                <i class="fas fa-network-wired"></i> Back to 5G Explorer
+            </a>
+        </div>
+    </section>
+
+    <!-- ── ANALYTICS SCREEN ── -->
+    <section id="analytics-screen" class="screen">
+        <h2>Performance Analytics</h2>
+        <div class="analytics-box">
+            <p id="overall-stats"></p>
+            <div id="category-stats"></div>
+            <div id="difficulty-stats"></div>
+            <div id="weak-area"></div>
+        </div>
+        <button id="back-home-btn">
+            <i class="fas fa-arrow-left"></i> Back to Results
+        </button>
+    </section>
+
+</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>

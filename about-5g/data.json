@@ -1,0 +1,178 @@
+{
+  "features": [
+    {
+      "id": "what-is-5g",
+      "title": "What is 5G?",
+      "icon": "fa-satellite-dish",
+      "content": "5G is a next-generation wireless cellular technology designed to deliver extremely high data speeds—up to 10 Gbps—along with very low latency, improved energy efficiency, and flexible operation. These features allow networks to be optimized based on specific use cases and deployed over different types of underlying network infrastructure.",
+      "points": [
+        "Designed to connect virtually everyone and everything together",
+        "Supports up to 1 million devices per square kilometer",
+        "Enables new applications in IoT, AI, and autonomous systems",
+        "Utilizes higher frequency bands (mmWave) for faster speeds"
+      ]
+    },
+    {
+      "id": "key-features",
+      "title": "Key Features",
+      "icon": "fa-bolt",
+      "content": "5G introduces several revolutionary features that distinguish it from previous generations.",
+      "points": [
+        "Enhanced Mobile Broadband (eMBB): 20 Gbps peak data rates",
+        "Ultra-Reliable Low Latency Communications (URLLC): <1ms latency",
+        "Massive Machine-Type Communications (mMTC): 1M devices/km²",
+        "Network Slicing: Multiple virtual networks on single infrastructure"
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "Network Architecture",
+      "icon": "fa-network-wired",
+      "content": "5G employs a service-based architecture with cloud-native principles.",
+      "points": [
+        "Cloud-RAN (C-RAN) architecture with centralized processing",
+        "Network Function Virtualization (NFV) and Software-Defined Networking (SDN)",
+        "Edge Computing for reduced latency",
+        "Small Cells for dense urban coverage"
+      ]
+    },
+    {
+      "id": "evolution-intro",
+      "title": "Evolution of Mobile Technology",
+      "icon": "fa-satellite-dish",
+      "content": "The term 5G refers to the fifth generation of mobile wireless communication. Mobile technology began with analog cellular systems in the late 1980s and has continuously evolved to support broader and more advanced connectivity. Today, this evolution has reached a stage where not only people, but also devices, machines, and objects can be connected to the Internet. Each generation of mobile technology has shared a common goal: enabling communication anytime and anywhere. However, the technical objectives and network capabilities have changed significantly with each generation. Typically, a new generation emerges every 7 to 10 years, and each is designed to meet societal and technological needs over a lifespan of 20 to 30 years across global markets.",
+      "points": [
+        "1G: Analog voice calls (1980s)",
+        "2G: Digital voice and SMS (1990s)",
+        "3G: Mobile internet and video calling (2000s)",
+        "4G: High-speed mobile broadband (2010s)",
+        "5G: Ultra-low latency and massive IoT (2020s)"
+      ]
+    }
+  ],
+
+  "fivegsystem": [
+    {
+      "id": "orchestration",
+      "title": "Orchestration",
+      "icon": "fa-diagram-project",
+      "image": "images/orch.jpg",
+      "content": "Orchestration in 5G refers to the automated management, coordination, and control of network resources, services, and virtual network functions across the entire network. Since 5G is cloud-native and highly virtualized (using NFV and SDN), orchestration ensures that network functions are deployed, scaled, and managed efficiently based on demand. It plays a key role in network slicing, where different slices must be created, modified, or removed dynamically. Orchestration handles lifecycle management of network functions, resource allocation (compute, storage, and networking), fault management, and service automation. In simple terms, orchestration acts as the brain that automates and manages the complex 5G infrastructure to ensure scalability, flexibility, and optimal performance."
+    },
+    {
+      "id": "sdn",
+      "title": "Software Defined Networking (SDN)",
+      "icon": "fa-network-wired",
+      "image": "images/sdn.jpg",
+      "content": "Software Defined Networking (SDN) is a network architecture approach that separates the control plane (decision-making logic) from the data plane (packet forwarding). Instead of each network device making independent decisions, a centralized SDN controller manages and programs the entire network. This separation allows networks to be more flexible, programmable, and easier to manage. In 5G, SDN enables dynamic traffic routing, efficient resource utilization, network slicing support, and automated configuration. It works closely with NFV (Network Function Virtualization) to support the cloud-native and software-driven nature of modern 5G networks. In simple terms, SDN makes the network intelligent and programmable through software control."
+    },
+    {
+      "id": "nfv",
+      "title": "Network Function Virtualisation (NFV)",
+      "icon": "fa-server",
+      "image": "images/nfv.jpg",
+      "content": "Network Function Virtualization (NFV) is a technology that replaces traditional hardware-based network functions (like routers, firewalls, EPC/5G Core components) with software-based virtual network functions (VNFs) running on standard servers. Instead of using dedicated physical appliances, NFV allows network functions to be deployed in virtual machines or containers within cloud infrastructure. This makes the network more flexible, scalable, and cost-effective. In 5G, NFV enables cloud-native core deployment, dynamic scaling of network functions, faster service rollout, and efficient resource utilization. It works together with SDN to create programmable and automated modern telecom networks. In simple terms, NFV converts network hardware into software running on general-purpose servers."
+    }
+  ],
+
+  "comparison": [
+    {
+      "name": "3G",
+      "speed": "2 Mbps",
+      "latency": "100-500ms",
+      "keyFeature": "Mobile internet, video calling",
+      "year": "2001"
+    },
+    {
+      "name": "4G",
+      "speed": "100 Mbps",
+      "latency": "30-50ms",
+      "keyFeature": "High-speed mobile broadband",
+      "year": "2009"
+    },
+    {
+      "name": "5G",
+      "speed": "10-20 Gbps",
+      "latency": "1-10ms",
+      "keyFeature": "Ultra-reliable low latency, massive IoT",
+      "year": "2019"
+    }
+  ],
+
+  "capabilities": [
+    {
+      "label": "User Data Speeds",   "value": "10-100x More"
+    },
+    {
+      "label": "Mobile Data Volumes","value": "1000x More"
+    },
+    {
+      "label": "Latency",            "value": "5x Lower"
+    },
+    {
+      "label": "No. of Devices",     "value": "100x More"
+    },
+    {
+      "label": "Costing",            "value": "Low"
+    },
+    {
+      "label": "Network Energy Efficiency", "value": "5x More"
+    },
+    {
+      "label": "Spectral Efficiency","value": "3x More"
+    },
+    {
+      "label": "Battery Life",       "value": ">10 years"
+    }
+  ],
+
+  "benefits": [
+    {
+      "title": "Enhanced Mobile Broadband",
+      "icon": "fa-check-circle",
+      "description": "Faster speeds and greater capacity for streaming high-quality video, immersive gaming, and augmented reality applications."
+    },
+    {
+      "title": "Mission-Critical Communications",
+      "icon": "fa-check-circle",
+      "description": "Ultra-reliable low-latency communication for applications that require instant response times like remote healthcare and autonomous vehicles."
+    },
+    {
+      "title": "Massive IoT Connectivity",
+      "icon": "fa-check-circle",
+      "description": "Ability to connect billions of IoT devices with efficient power consumption and extended coverage."
+    },
+    {
+      "title": "Network Slicing",
+      "icon": "fa-check-circle",
+      "description": "Creation of multiple virtual networks on a single physical 5G network, each optimized for specific services or customers."
+    }
+  ],
+
+  "applications": [
+    {
+      "name": "Smart Factories",
+      "icon": "fa-industry",
+      "description": "5G enables real-time monitoring and control of manufacturing processes with connected robots and sensors.",
+      "items": ["Predictive maintenance", "Autonomous robots", "Quality control with AI", "Supply chain optimization"]
+    },
+    {
+      "name": "Telemedicine",
+      "icon": "fa-heartbeat",
+      "description": "High-resolution video consultations and remote surgeries become possible with 5G's low latency and reliability.",
+      "items": ["Remote surgery with haptic feedback", "Real-time patient monitoring", "AR-assisted diagnostics", "Ambulance connectivity"]
+    },
+    {
+      "name": "Autonomous Vehicles",
+      "icon": "fa-car",
+      "description": "5G allows vehicles to communicate with each other and infrastructure in real-time for safer transportation.",
+      "items": ["Vehicle-to-vehicle communication", "Smart traffic management", "Remote vehicle diagnostics", "Fleet management"]
+    },
+    {
+      "name": "Cloud Gaming & Entertainment",
+      "icon": "fa-gamepad",
+      "description": "Stream high-quality games and immersive content directly from the cloud without the need for expensive hardware. 5G and AR is taking gaming to a new level.",
+      "items": ["Lag-free cloud gaming", "8K video streaming", "Immersive VR/AR experiences", "Interactive live events"]
+    }
+  ]
+}
