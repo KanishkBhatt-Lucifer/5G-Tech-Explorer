@@ -30,6 +30,8 @@ Learning Objectives
     Web-based educational tools
     Interactive learning interfaces
 
-Made by: Kanishk Bhatt (B.Tech – Electronics & Communication Engineering)
+Made by: Kanishk Bhatt (B.Tech – Electronics & Communication Engineering 
+
 GitHub: https://github.com/kanishkbhatt-lucifer
+
 This project is created for educational and learning purposes.
