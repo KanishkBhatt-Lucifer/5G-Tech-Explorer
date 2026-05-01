@@ -497,7 +497,7 @@ function showArchitecture() {
       <div class="upf-smf-connector">
 
         <div class="connector-line-smfupf"></div>
-        <div class="connector-box-smfupf">N4</div>
+        <div class="connector-box-smfupf">N2</div>
         <div class="connector-line-smfupf"></div>
 
       </div>
@@ -528,7 +528,7 @@ function showArchitecture() {
       <div class="ran-amf-connector">
 
         <div class="connector-line-vertical"></div>
-        <div class="connector-box-vertical">N2</div>
+        <div class="connector-box-vertical">N4</div>
         <div class="connector-line-vertical"></div>
 
       </div>
